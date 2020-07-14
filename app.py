@@ -199,4 +199,6 @@ if st.checkbox('df_plot'):
     st.write(pyplot.iloc[: , :])
 st.text("")
 st.write('\n\nhttps://github.com/firstnattapon/N2/edit/master/app.py')
+
+
                                 
