@@ -188,7 +188,7 @@ model.Dense_31 = st.sidebar.number_input('Dense_31' , -10.0 , 10.0 , model.Dense
 model.Dense_32 = st.sidebar.number_input('Dense_32' , -10.0 , 10.0 , model.Dense_32)
 
 st.sidebar.text("_"*45)
-model.pair_data = st.sidebar.text_input('data' , "TOMO-PERP")
+model.pair_data = st.sidebar.text_input('data' , "COMP-PERP")
 model.timeframe = st.sidebar.selectbox('timeframe',('1h' , '5m' , '15m' , '1h', '4h' ,'1d'))
 model.start_test =  np.datetime64(st.sidebar.date_input('start_test', value= dt.datetime(2020, 7, 4, 0, 0)))
 
@@ -198,5 +198,5 @@ pyplot = model.nav
 if st.checkbox('df_plot'):
     st.write(pyplot.iloc[: , :])
 st.text("")
-st.write('\n\nhttps://github.com/firstnattapon/test-stream/edit/master/app.py')
+st.write('\n\nhttps://github.com/firstnattapon/N2/edit/master/app.py')
                                 
