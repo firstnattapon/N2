@@ -17,24 +17,24 @@ from sympy import nextprime
 class Run_model :
     def __init__(self , ex='deribit'):
         self.ex = ex
-        self.pair_data = "TOMO-PERP"
+        self.pair_data = "COMP-PERP"
         self.pair_trade = 'ETH-PERPETUAL'
         self.apiKey ="AtdG0K3k"
         self.secret ="lItUXWckP2PNN-uPnrP_h_0dsctCXdFVP9x73bwo3Nc"
-        self.Dense_11 = -0.09
-        self.Dense_12 = -0.07
+        self.Dense_11 = -0.03
+        self.Dense_12 = -0.02
         self.Dense_21 =  0.02
         self.Dense_22 =  0.02
-        self.Dense_31 = -0.02
-        self.Dense_32 =  0.01
+        self.Dense_31 =  0.01
+        self.Dense_32 =  0.02
         self.start_capital = 225.00
         self.sleep = 3
         self.timeframe = "1h"  
         self.limit = 500
         self.start_test = dt.datetime(2020, 7 , 4 , 0 , 0)
-        self.length_1 = 80
-        self.length_2 = 29
-        self.input_1  = 'variance'
+        self.length_1 = 12
+        self.length_2 = 3
+        self.input_1  = 'roc'
         self.input_2  = 'rsi'
         
     @property
@@ -172,12 +172,12 @@ selectbox = lambda x, y : st.sidebar.selectbox('input_{}'.format(x),
     'variance', 'vwap', 'vwma', 'willr', 'wma', 'zlma', 'zscore' ,'nextprime'))
 
 st.sidebar.text("_"*45)
-model.input_1 = selectbox(1 ,'variance')
+model.input_1 = selectbox(1 ,'roc')
 model.input_2 = selectbox(2 ,'rsi')
 
 st.sidebar.text("_"*45)
-model.length_1 = st.sidebar.slider('length_1' , 2 , 500 , 80)
-model.length_2 = st.sidebar.slider('length_2' , 2 , 500 , 29)
+model.length_1 = st.sidebar.slider('length_1' , 2 , 500 , 12)
+model.length_2 = st.sidebar.slider('length_2' , 2 , 500 , 3)
 
 st.sidebar.text("_"*45)
 model.Dense_11 = st.sidebar.number_input('Dense_11' , -10.0 , 10.0 , model.Dense_11)
