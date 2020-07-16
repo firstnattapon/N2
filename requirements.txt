@@ -1,12 +1,12 @@
 https://files.pythonhosted.org/packages/12/ba/ac7a51be39052bebec8fd7bb4c4fe849c346e98d8800e89a1d08bb95ea94/pandas_ta-0.1.66b.tar.gz
-streamlit == 0.62.1
-pandas == 1.0.5
-ccxt == 1.30.53
-pandas-ta == 0.1.66b
-matplotlib == 3.2.2
-seaborn == 0.10.1
-numpy == 1.18.5
-https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp36-cp36m-linux_x86_64.whl
-cryptorandom
-scipy
-sympy
+#streamlit == 0.62.1
+#pandas == 1.0.5
+#ccxt == 1.30.53
+#pandas-ta == 0.1.66b
+#matplotlib == 3.2.2
+#seaborn == 0.10.1
+#numpy == 1.18.5
+#https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp36-cp36m-linux_x86_64.whl
+#cryptorandom
+#scipy
+#sympy
