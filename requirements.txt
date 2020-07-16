@@ -1,3 +1,4 @@
+pip
 setuptools
 streamlit == 0.62.1
 pandas == 1.0.5
