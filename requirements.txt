@@ -1,4 +1,10 @@
-$ pip install -U git+https://github.com/twopirllc/pandas-ta
+python-dateutil
+numpy
+pytz
+six
+pandas 
+pandas-ta
+
 
 #streamlit == 0.62.1
 #pandas == 1.0.5
