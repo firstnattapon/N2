@@ -1,5 +1,5 @@
 
-pandas-ta
+TA-Lib
 #streamlit == 0.62.1
 #pandas == 1.0.5
 #ccxt == 1.30.53
