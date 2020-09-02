@@ -15,8 +15,8 @@ import numpy as np
 # else:
 #     st.write("You didn't select comedy.")
 
-c_1 =  st.slider(c_1, min_value=0, max_value=12, value=5, step=None, format=None, key=None)
-c_2 =  st.slider(c_2, min_value=0, max_value=12, value=5, step=None, format=None, key=None)
+c_1 =  st.slider('c_1', min_value=0, max_value=12, value=5, step=None, format=None, key=None)
+c_2 =  st.slider('c_2', min_value=0, max_value=12, value=5, step=None, format=None, key=None)
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 y = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
