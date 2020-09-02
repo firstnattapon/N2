@@ -33,15 +33,18 @@ data = np.array([
 [F, G, G,H, H, H, H, H, H, H, G, E,  G],
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
-c_1 = Z[c_1]
-c_2 = Z[c_2]
-data[[c_1] ,[c_2]] = 1.
-fig, ax = plt.subplots(figsize=(5 , 5))
-im = ax.imshow(data ,)
-ax.set_xticks(np.arange(len(x)))
-ax.set_yticks(np.arange(len(y)))
-ax.xaxis.tick_top()
-ax.set_xticklabels(x)
-ax.set_yticklabels(y)
-fig.tight_layout()
-st.pyplot()
+
+df = pd.dataframe(data)
+# c_1 = Z[c_1]
+# c_2 = Z[c_2]
+# data[[c_1] ,[c_2]] = 1.
+# fig, ax = plt.subplots(figsize=(5 , 5))
+# im = ax.imshow(data ,)
+# ax.set_xticks(np.arange(len(x)))
+# ax.set_yticks(np.arange(len(y)))
+# ax.xaxis.tick_top()
+# ax.set_xticklabels(x)
+# ax.set_yticklabels(y)
+# fig.tight_layout()
+# st.pyplot()
+st.sidebar.write(df)
