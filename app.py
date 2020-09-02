@@ -21,8 +21,8 @@ c_1 = st.sidebar.radio("c_1",(x))
 c_2 = st.sidebar.radio("c_2",(x))
 st.sidebar.write('_'*20)
 
-# Z = {"A" : 0.7  , "B" : 0.6 , "C" : 0.5 , "D" : 0.4 , "E" : 0.3 , "F" :0.2 , "G" :0.1 ,  "H" : 0.0}
-# A = Z['A']  ; B = Z['B'] ; C = Z['C']  ; D= Z['D'] ; E = Z['E'] ; F = Z['F']  ; G = Z['G'] ; H = Z['H']
+Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
+A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
 
 data = np.array([
 [A, A, B, C, D, E, F, F, F, F, F, F, F],
@@ -40,7 +40,7 @@ data = np.array([
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
 
-# data[[Z[c_1]] ,[[Z[c_2]] = 1.
+data[[Z[c_1]] ,[[Z[c_2]] = 1.
 fig, ax = plt.subplots(figsize=(3 , 3))
 im = ax.imshow(data , cmap='Greys')
 ax.set_xticks(np.arange(len(x)))
