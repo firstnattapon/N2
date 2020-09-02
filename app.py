@@ -41,7 +41,7 @@ data = np.array([
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
 
-data[[G['c_1']] ,[[G['c_2']]] = 1.
+data[[G[c_1]] ,[[G[c_2]]] = 1.
 fig, ax = plt.subplots(figsize=(3 , 3))
 im = ax.imshow(data , cmap='Greys')
 ax.set_xticks(np.arange(len(x)))
