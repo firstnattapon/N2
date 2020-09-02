@@ -39,8 +39,9 @@ data = np.array([
 [F, G, G,H, H, H, H, H, H, H, G, E,  G],
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
-
-data[[Z[c_1]] ,[[Z[c_2]] = 1.
+c_1 = Z[c_1]
+c_2 = Z[c_2]
+data[[c_1] ,[c_2]] = 1.
 fig, ax = plt.subplots(figsize=(3 , 3))
 im = ax.imshow(data , cmap='Greys')
 ax.set_xticks(np.arange(len(x)))
