@@ -55,5 +55,5 @@ df = df[df['Human'] == h]
 # ax.set_yticklabels(y)
 # fig.tight_layout()
 # st.pyplot()
-st.write(df)
+st.sidebar.write(df)
 
