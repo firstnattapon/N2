@@ -13,14 +13,12 @@ import numpy as np
 # else:
 #     st.write("You didn't select comedy.")
 
-c_1 =  st.slider('c_1', min_value=0, max_value=12, value=5, step=1, format=None, key=None)
-c_2 =  st.slider('c_2', min_value=0, max_value=12, value=5, step=1, format=None, key=None)
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 y = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 
-c_1 = st.radio("c_1",(x))
-c_2 = st.radio("c_2",(x))
+c_1 = st.sidebar.radio("c_1",(x))
+c_2 = st.sidebar.radio("c_2",(x))
 
 # Z = {"A" : 0.7  , "B" : 0.6 , "C" : 0.5 , "D" : 0.4 , "E" : 0.3 , "F" :0.2 , "G" :0.1 ,  "H" : 0.0}
 # A = Z['A']  ; B = Z['B'] ; C = Z['C']  ; D= Z['D'] ; E = Z['E'] ; F = Z['F']  ; G = Z['G'] ; H = Z['H']
