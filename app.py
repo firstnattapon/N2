@@ -12,15 +12,19 @@ def preflop():
     df = df.set_index(['y'])
     df['Ev'] = df['Ev'] *100
     return  df
-  
-df = preflop()
-x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-Suit = st.sidebar.radio("Suit",("s" , "o"))
-c_1 = st.sidebar.radio("c_1",(x))
-c_2 = st.sidebar.radio("c_2",(x))
 
-h = c_1 + c_2 + Suit
-df = df[df['Human'] == h]
+def streamlit():
+    df = preflop()
+    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+    Suit = st.sidebar.radio("Suit",("s" , "o"))
+    c_1 = st.sidebar.radio("c_1",(x))
+    c_2 = st.sidebar.radio("c_2",(x))
+    h = c_1 + c_2 + Suit
+    df = df[df['Human'] == h]
+
+st.sidebar.subheader('class:{}'.format(df.index))
+st.sidebar.write(df)
+
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
 # A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
@@ -55,5 +59,4 @@ df = df[df['Human'] == h]
 # ax.set_yticklabels(y)
 # fig.tight_layout()
 # st.pyplot()
-st.sidebar.write(df)
 
