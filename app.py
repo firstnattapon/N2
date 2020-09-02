@@ -15,13 +15,10 @@ def preflop():
   
 df = preflop()
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-# Suit = st.sidebar.radio("Suit",("s" , "o"))
-# c_1 = st.sidebar.radio("c_1",(x))
-# c_2 = st.sidebar.radio("c_2",(x))
+Suit = st.sidebar.radio("Suit",("s" , "o"))
+c_1 = st.sidebar.radio("c_1",(x))
+c_2 = st.sidebar.radio("c_2",(x))
 
-Suit = st.radio("Suit",("s" , "o"))
-c_1 = st.radio("c_1",(x))
-c_2 = st.radio("c_2",(x))
 h = c_1 + c_2 + Suit
 df = df[df['Human'] == h]
 
