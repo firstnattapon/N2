@@ -8,7 +8,8 @@ import numpy as np
 
 @st.cache(suppress_st_warning=True)
 def preflop():
-    return  df = pd.read_pickle('./content/preflop.pickle')
+    df = pd.read_pickle('./preflop.pickle')
+    return  df
   
 df = preflop()
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
