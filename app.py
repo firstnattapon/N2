@@ -34,7 +34,7 @@ data = np.array([
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
 
-df = pd.dataframe(data)
+df = pd.DataFrame(data)
 # c_1 = Z[c_1]
 # c_2 = Z[c_2]
 # data[[c_1] ,[c_2]] = 1.
