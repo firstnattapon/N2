@@ -9,11 +9,12 @@ import numpy as np
 @st.cache(suppress_st_warning=True)
 def preflop():
     df = pd.read_pickle('./preflop.pickle')
+    df = df.set_index(['y'])
     return  df
   
 df = preflop()
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-Suit = st.sidebar.radio("Suit",("o" , "s"))
+Suit = st.sidebar.radio("Suit",("s" , "o"))
 c_1 = st.sidebar.radio("c_1",(x))
 c_2 = st.sidebar.radio("c_2",(x))
 h = c_1 + c_2 + Suit
