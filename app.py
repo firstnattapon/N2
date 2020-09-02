@@ -22,8 +22,8 @@ y = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 c_1 = st.radio("c_1",(x))
 c_2 = st.radio("c_2",(x))
 
-G = {A : 0.7  , B : 0.6 , C : 0.5 , D : 0.4 , E : 0.3 , F :0.2 , G :0.1 ,  H : 0.0}
-A = G['A']  ; B = G['B'] ; C = G['C']  ; D= G['D'] ; E = G['E'] ; F = G['F']  ;  G  =G['G'] ; H = G['H']
+Z = {"A" : 0.7  , "B" : 0.6 , "C" : 0.5 , "D" : 0.4 , "E" : 0.3 , "F" :0.2 , "G" :0.1 ,  "H" : 0.0}
+A = Z['A']  ; B = Z['B'] ; C = Z['C']  ; D= Z['D'] ; E = Z['E'] ; F = Z['F']  ; G = Z['G'] ; H = Z['H']
 
 data = np.array([
 [A, A, B, C, D, E, F, F, F, F, F, F, F],
@@ -41,7 +41,7 @@ data = np.array([
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
 
-data[[G[c_1]] ,[[G[c_2]] = 1.
+data[[Z[c_1]] ,[[Z[c_2]] = 1.
 fig, ax = plt.subplots(figsize=(3 , 3))
 im = ax.imshow(data , cmap='Greys')
 ax.set_xticks(np.arange(len(x)))
