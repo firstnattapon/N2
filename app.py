@@ -34,6 +34,7 @@ data = np.array([
 [F, G, G, H, H, H, H, H, H, H, H, G, E],
 ])
 
+
 df = pd.DataFrame(data)
 # c_1 = Z[c_1]
 # c_2 = Z[c_2]
@@ -48,3 +49,4 @@ df = pd.DataFrame(data)
 # fig.tight_layout()
 # st.pyplot()
 st.write(df)
+
