@@ -6,17 +6,11 @@ import seaborn as sns
 import numpy as np
 # sns.set_style("whitegrid")
 
-# genre = st.radio("c_1",(x))
-
-# if genre == 'Comedy':
-#     st.write('You selected comedy.')
-# else:
-#     st.write("You didn't select comedy.")
-
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 y = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 
+st.sidebar.write('_'*20)
 c_1 = st.sidebar.radio("c_1",(x))
 c_2 = st.sidebar.radio("c_2",(x))
 st.sidebar.write('_'*20)
@@ -42,8 +36,8 @@ data = np.array([
 c_1 = Z[c_1]
 c_2 = Z[c_2]
 data[[c_1] ,[c_2]] = 1.
-fig, ax = plt.subplots(figsize=(3 , 3))
-im = ax.imshow(data , cmap='Greys')
+fig, ax = plt.subplots(figsize=(5 , 5))
+im = ax.imshow(data ,)
 ax.set_xticks(np.arange(len(x)))
 ax.set_yticks(np.arange(len(y)))
 ax.xaxis.tick_top()
