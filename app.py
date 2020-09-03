@@ -24,19 +24,19 @@ df = preflop()
 df = df[df['Human'] == h]
 st.sidebar.write(df)
 
-if df.indax == 1:
+if df.index == 1:
     st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
-if df.indax == 2:
+if df.index == 2:
     st.markdown("![OY7E7P.png](https://sv1.picz.in.th/images/2020/09/04/OY7E7P.png)")
-if df.indax == 3:
+if df.index == 3:
     st.markdown("![OY7Ogt.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Ogt.jpg)")
-if df.indax == 4:
+if df.index == 4:
     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
-if df.indax == 5:
+if df.index == 5:
     st.markdown("![OY7jFl.png](https://sv1.picz.in.th/images/2020/09/04/OY7jFl.png)")
-if df.indax == 6:
+if df.index == 6:
     st.markdown("![OY7otk.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7otk.jpg)")
-if df.indax == 7:
+if df.index == 7:
     st.markdown("![OY7Dlv.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Dlv.jpg)")
 
     
