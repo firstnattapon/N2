@@ -15,14 +15,17 @@ def preflop():
     df['top_range'] = abs(df['EV'] - 1.)
     return  df
 
-x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-# Suit = st.sidebar.radio("Suit",("o" , "s"))
-# c_1 = st.sidebar.selectbox("c_1",(x))
-# c_2 = st.sidebar.selectbox("c_2",(x))
 
-Suit = st.radio("Suit",("o" , "s"))
-c_1 = st.selectbox("c_1",(x))
-c_2 = st.selectbox("c_2",(x))
+
+x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+Suit = st.sidebar.radio("Suit",("o" , "s"))
+c_1 = st.sidebar.radio("c_1",(x))
+c_2 = st.sidebar.radio("c_2",(x))
+st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+
+# Suit = st.radio("Suit",("o" , "s"))
+# c_1 = st.selectbox("c_1",(x))
+# c_2 = st.selectbox("c_2",(x))
 h = c_1 + c_2 + Suit
 df = preflop()
 df = df[df['Human'] == h]
