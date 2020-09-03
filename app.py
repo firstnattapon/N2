@@ -12,7 +12,7 @@ def preflop():
     df = pd.read_pickle('./preflop.pickle')
     df = df[['Human', 'EV' , 'y']]
     df = df.set_index(['y'])
-    df['EV'] = df['EV'] *100
+    df['EV'] = abs(df['EV'] - 1.)
     return  df
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
