@@ -62,7 +62,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 _radio_button = components.declare_component(
-    "radio_button", url="http://localhost:3001",
+    "radio_button", url="https://soldier-n2.herokuapp.com/",
 )
 
 
