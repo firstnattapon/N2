@@ -23,8 +23,23 @@ h = c_1 + c_2 + Suit
 df = preflop()
 df = df[df['Human'] == h]
 st.sidebar.write(df)
-st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
 
+if df.indax == 1:
+    st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
+if df.indax == 2:
+    st.markdown("![OY7E7P.png](https://sv1.picz.in.th/images/2020/09/04/OY7E7P.png)")
+if df.indax == 3:
+    st.markdown("![OY7Ogt.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Ogt.jpg)")
+if df.indax == 4:
+    st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
+if df.indax == 5:
+    st.markdown("![OY7jFl.png](https://sv1.picz.in.th/images/2020/09/04/OY7jFl.png)")
+if df.indax == 6:
+    st.markdown("![OY7otk.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7otk.jpg)")
+if df.indax == 7:
+    st.markdown("![OY7Dlv.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Dlv.jpg)")
+
+    
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
 # A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
 
