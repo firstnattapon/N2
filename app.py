@@ -4,6 +4,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import matplotlib.image as mpimg
+
 # sns.set_style("whitegrid")
 
 @st.cache(suppress_st_warning=True)
@@ -13,14 +15,23 @@ def preflop():
     df['Ev'] = df['Ev'] *100
     return  df
 
-df = preflop()
+@st.cache(suppress_st_warning=True)
+def imshow():
+    img = mpimg.imread('./image.png')
+    plt.imshow(img)
+    st.pyplot()
+
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 Suit = st.sidebar.radio("Suit",("s" , "o"))
 c_1 = st.sidebar.radio("c_1",(x))
 c_2 = st.sidebar.radio("c_2",(x))
 h = c_1 + c_2 + Suit
+
+imshow = imshow()
+df = preflop()
 df = df[df['Human'] == h]
 st.sidebar.write(df)
+
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
 # A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
