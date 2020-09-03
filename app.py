@@ -15,7 +15,7 @@ def preflop():
     return  df
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-Suit = st.sidebar.radio("Suit",("s" , "o"))
+Suit = st.sidebar.radio("Suit",("o" , "s"))
 c_1 = st.sidebar.selectbox("c_1",(x))
 c_2 = st.sidebar.selectbox("c_2",(x))
 h = c_1 + c_2 + Suit
