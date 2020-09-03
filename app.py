@@ -20,9 +20,6 @@ c_1 = st.sidebar.radio("c_1",(x))
 c_2 = st.sidebar.radio("c_2",(x))
 h = c_1 + c_2 + Suit
 
-img = imshow()
-plt.imshow(img)
-st.pyplot()
 df = preflop()
 df = df[df['Human'] == h]
 st.sidebar.write(df)
