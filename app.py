@@ -24,6 +24,8 @@ df = preflop()
 df = df[df['Human'] == h]
 st.write(df)
 
+st st.markdown("![Alt Text](https://www.img.in.th/images/545087685ec93a607358c6b13cb361f6.png)")
+
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
 # A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
 
