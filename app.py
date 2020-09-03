@@ -22,7 +22,7 @@ h = c_1 + c_2 + Suit
 
 df = preflop()
 df = df[df['Human'] == h]
-st.write(df)
+st.sidebar.write(df)
 # st.markdown("![Alt Text](https://www.img.in.th/images/545087685ec93a607358c6b13cb361f6.png)")
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
