@@ -11,7 +11,7 @@ import matplotlib.image as mpimg
 def preflop():
     df = pd.read_pickle('./preflop.pickle')
     df = df.set_index(['y'])
-    df['Ev'] = df['Ev'] *100
+#     df['Ev'] = df['Ev'] *100
     return  df
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
