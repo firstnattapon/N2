@@ -1,11 +1,10 @@
 import pandas as pd
 pd.set_option("display.precision", 8)
 import streamlit as st
-import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-
 # sns.set_style("whitegrid")
 
 @st.cache(suppress_st_warning=True)
@@ -18,8 +17,7 @@ def preflop():
 @st.cache(suppress_st_warning=True)
 def imshow():
     img = mpimg.imread('./image.png')
-    plt.imshow(img)
-    st.pyplot()
+    return  img
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 Suit = st.sidebar.radio("Suit",("s" , "o"))
@@ -27,7 +25,9 @@ c_1 = st.sidebar.radio("c_1",(x))
 c_2 = st.sidebar.radio("c_2",(x))
 h = c_1 + c_2 + Suit
 
-imshow = imshow()
+img = imshow()
+plt.imshow(img)
+st.pyplot()
 df = preflop()
 df = df[df['Human'] == h]
 st.sidebar.write(df)
