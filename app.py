@@ -15,14 +15,17 @@ def preflop():
     return  df
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-Suit = st.sidebar.radio("Suit",("o" , "s"))
-c_1 = st.sidebar.selectbox("c_1",(x))
-c_2 = st.sidebar.selectbox("c_2",(x))
-h = c_1 + c_2 + Suit
+# Suit = st.sidebar.radio("Suit",("o" , "s"))
+# c_1 = st.sidebar.selectbox("c_1",(x))
+# c_2 = st.sidebar.selectbox("c_2",(x))
 
+Suit = st.radio("Suit",("o" , "s"))
+c_1 = st.selectbox("c_1",(x))
+c_2 = st.selectbox("c_2",(x))
+h = c_1 + c_2 + Suit
 df = preflop()
 df = df[df['Human'] == h]
-st.sidebar.write(df)
+st.write(df)
 
 if df.index == 1:
     st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
