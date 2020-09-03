@@ -16,10 +16,8 @@ def preflop():
     return  df
 
 
-
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 Suit = st.radio("Suit",("o" , "s"))
-st.write("_"*50)
 c_1 = st.radio("c_1",(x))
 c_2 = st.radio("c_2",(x))
 st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
@@ -30,7 +28,6 @@ st.write("_"*50)
 h = c_1 + c_2 + Suit
 df = preflop()
 df = df[df['Human'] == h]
-st.write(df)
 
 if df.index == 1:
     st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
