@@ -19,8 +19,8 @@ def preflop():
 
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 Suit = st.sidebar.radio("Suit",("o" , "s"))
-c_1 = st.sidebar.radio("c_1",(x))
-c_2 = st.sidebar.radio("c_2",(x))
+c_1 = st.radio("c_1",(x))
+c_2 = st.radio("c_2",(x))
 st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 # Suit = st.radio("Suit",("o" , "s"))
