@@ -15,7 +15,6 @@ def preflop():
     df['top_range'] = abs(df['EV'] - 1.)
     return  df
 
-
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 Suit = st.radio("Suit",("o" , "s"))
 c_1 = st.radio("c_1",(x))
@@ -43,7 +42,7 @@ if df.index == 6:
     st.markdown("![OY7otk.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7otk.jpg)")
 if df.index == 7:
     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
-st.write("_"*50)
+
 st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
