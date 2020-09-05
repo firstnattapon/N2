@@ -91,7 +91,7 @@ import hiplot as hip
 def preflop():
     df = pd.read_pickle('./preflop.pickle')
     df = df[['Human', 'EV' , 'y']]
-    df = df.set_index(['y'])
+#     df = df.set_index(['y'])
     df['top_range'] = abs(df['EV'] - 1.)
     df = df.to_dict('r')
     return  df
