@@ -47,7 +47,7 @@ if df.index == 7:
 
 data = pd.read_pickle('./preflop.pickle')
 # data = data.reset_index()
-data = data['Ang_Card' , 'Suited' , 'y' ]
+data = data[['Ang_Card' , 'Suited' , 'y']]
 data = data.to_dict('r')
 xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
