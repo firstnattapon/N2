@@ -18,7 +18,8 @@ def preflop():
     df['top_range'] = abs(df['EV'] - 1.)
     return  df
 
-data = preflop()
+data = pd.read_pickle('./preflop.pickle')
+# data = data.reset_index()
 data = data.to_dict('r')
 xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
