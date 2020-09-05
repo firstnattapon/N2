@@ -87,16 +87,15 @@ import hiplot as hip
 
 # Create your experiment as usual
 
-# @st.cache(suppress_st_warning=True)
-# def preflop():
-#     df = pd.read_pickle('./preflop.pickle')
-# #     df = df[['Human', 'EV' , 'y']]
-# #     df = df.set_index(['y'])
-# #     df['top_range'] = abs(df['EV'] - 1.)
-#     return  df
-
-df = pd.read_pickle('./preflop.pickle')
-data = df.to_dict('r')
+@st.cache(suppress_st_warning=True)
+def preflop():
+    df = pd.read_pickle('./preflop.pickle')
+    df = df[['Human', 'EV' , 'y']]
+    df = df.set_index(['y'])
+    df['top_range'] = abs(df['EV'] - 1.)
+    df = df.to_dict('r')
+    return  df
+data =  preflop()
 xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
 ret_val = xp.display_st(key="hip")
