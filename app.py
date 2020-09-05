@@ -19,6 +19,7 @@ def preflop():
     return  df
 
 data = preflop()
+data = data.to_dict('r')
 xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
 ret_val = xp.display_st(key="hip")
