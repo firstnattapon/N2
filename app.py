@@ -7,43 +7,43 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 # sns.set_style("whitegrid")
 
-@st.cache(suppress_st_warning=True)
-def preflop():
-    df = pd.read_pickle('./preflop.pickle')
-    df = df[['Human', 'EV' , 'y']]
-    df = df.set_index(['y'])
-    df['top_range'] = abs(df['EV'] - 1.)
-    return  df
+# @st.cache(suppress_st_warning=True)
+# def preflop():
+#     df = pd.read_pickle('./preflop.pickle')
+#     df = df[['Human', 'EV' , 'y']]
+#     df = df.set_index(['y'])
+#     df['top_range'] = abs(df['EV'] - 1.)
+#     return  df
 
-x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-Suit = st.radio("Suit",("o" , "s"))
-c_1 = st.radio("c_1",(x))
-c_2 = st.radio("c_2",(x))
-st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-st.write("_"*50)
+# x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 # Suit = st.radio("Suit",("o" , "s"))
-# c_1 = st.selectbox("c_1",(x))
-# c_2 = st.selectbox("c_2",(x))
-h = c_1 + c_2 + Suit
-df = preflop()
-df = df[df['Human'] == h]
+# c_1 = st.radio("c_1",(x))
+# c_2 = st.radio("c_2",(x))
+# st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+# st.write("_"*50)
+# # Suit = st.radio("Suit",("o" , "s"))
+# # c_1 = st.selectbox("c_1",(x))
+# # c_2 = st.selectbox("c_2",(x))
+# h = c_1 + c_2 + Suit
+# df = preflop()
+# df = df[df['Human'] == h]
 
-if df.index == 1:
-    st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
-if df.index == 2:
-    st.markdown("![OY7E7P.png](https://sv1.picz.in.th/images/2020/09/04/OY7E7P.png)")
-if df.index == 3:
-    st.markdown("![OY7Ogt.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Ogt.jpg)")
-if df.index == 4:
-    st.markdown("![OY7jFl.png](https://sv1.picz.in.th/images/2020/09/04/OY7jFl.png)")
-if df.index == 5:
-    st.markdown("![OY7Dlv.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Dlv.jpg)")
-if df.index == 6:
-    st.markdown("![OY7otk.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7otk.jpg)")
-if df.index == 7:
-    st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
+# if df.index == 1:
+#     st.markdown("![OY7T8b.png](https://sv1.picz.in.th/images/2020/09/04/OY7T8b.png)")
+# if df.index == 2:
+#     st.markdown("![OY7E7P.png](https://sv1.picz.in.th/images/2020/09/04/OY7E7P.png)")
+# if df.index == 3:
+#     st.markdown("![OY7Ogt.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Ogt.jpg)")
+# if df.index == 4:
+#     st.markdown("![OY7jFl.png](https://sv1.picz.in.th/images/2020/09/04/OY7jFl.png)")
+# if df.index == 5:
+#     st.markdown("![OY7Dlv.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7Dlv.jpg)")
+# if df.index == 6:
+#     st.markdown("![OY7otk.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7otk.jpg)")
+# if df.index == 7:
+#     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
 
-st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
+# st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
 # A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
@@ -78,3 +78,21 @@ st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/image
 # ax.set_yticklabels(y)
 # fig.tight_layout()
 # st.pyplot()
+
+
+import json
+import streamlit as st
+import hiplot as hip
+
+x1, x2, x3 = st.slider('x1'), st.slider('x2'), st.slider('x3')
+
+# Create your experiment as usual
+data = [{'uid': 'a', 'dropout': 0.1, 'lr': 0.001, 'loss': 10.0, 'optimizer': 'SGD', 'x': x1},
+        {'uid': 'b', 'dropout': 0.15, 'lr': 0.01, 'loss': 3.5, 'optimizer': 'Adam', 'x': x2},
+        {'uid': 'c', 'dropout': 0.3, 'lr': 0.1, 'loss': 4.5, 'optimizer': 'Adam', 'x': x3}]
+xp = hip.Experiment.from_iterable(data)
+
+# Display with `display_st` instead of `display`
+ret_val = xp.display_st(ret="selected_uids", key="hip")
+
+st.markdown("hiplot returned " + json.dumps(ret_val))
