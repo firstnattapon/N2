@@ -79,7 +79,6 @@ import matplotlib.image as mpimg
 # fig.tight_layout()
 # st.pyplot()
 
-
 import json
 import streamlit as st
 import hiplot as hip
