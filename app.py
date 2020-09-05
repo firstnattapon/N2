@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import json
 import hiplot as hip
+pd.set_option('precision', 2)
 # sns.set_style("whitegrid")
 
 @st.cache(suppress_st_warning=True)
