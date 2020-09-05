@@ -18,14 +18,6 @@ def preflop():
     df['top_range'] = abs(df['EV'] - 1.)
     return  df
 
-data = pd.read_pickle('./preflop.pickle')
-# data = data.reset_index()
-data = data.to_dict('r')
-xp = hip.Experiment.from_iterable(data)
-# Display with `display_st` instead of `display`
-ret_val = xp.display_st(key="hip")
-st.markdown("hiplot returned " + json.dumps(ret_val))
-
 x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
 Suit = st.radio("Suit",("o" , "s"))
 c_1 = st.radio("c_1",(x))
@@ -52,6 +44,15 @@ if df.index == 7:
     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
 # st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
 
+
+data = pd.read_pickle('./preflop.pickle')
+# data = data.reset_index()
+data = data['Ang_Card' , 'Suited' , 'y' ]
+data = data.to_dict('r')
+xp = hip.Experiment.from_iterable(data)
+# Display with `display_st` instead of `display`
+ret_val = xp.display_st(key="hip")
+st.markdown("hiplot returned " + json.dumps(ret_val))
 
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
