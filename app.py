@@ -45,10 +45,16 @@ if df.index == 6:
     st.markdown("![OY7otk.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7otk.jpg)")
 if df.index == 7:
     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
-st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
+# st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
 
+@st.cache(suppress_st_warning=True)
+def hip():
+    x = pd.read_pickle('./preflop.pickle')
+    x = x[['Human', 'EV' , 'y']]
+    x = x.to_dict('r')
+    return  x
 
-data =  df.to_dict('r')
+data =  hip()
 xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
 ret_val = xp.display_st(key="hip")
