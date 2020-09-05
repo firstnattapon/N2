@@ -94,10 +94,10 @@ import hiplot as hip
 # #     df = df.set_index(['y'])
 # #     df['top_range'] = abs(df['EV'] - 1.)
 #     return  df
-df = pd.read_pickle('./preflop.pickle')
-data = list(df)
-xp = hip.Experiment.from_iterable(data)
 
+df = pd.read_pickle('./preflop.pickle')
+data = df.to_dict('r')
+xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
 ret_val = xp.display_st(key="hip")
 st.markdown("hiplot returned " + json.dumps(ret_val))
