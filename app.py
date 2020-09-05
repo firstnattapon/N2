@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import json
 import hiplot as hip
-pd.set_option('precision', 2)
+pd.set_option('precision', 3)
 # sns.set_style("whitegrid")
 
 @st.cache(suppress_st_warning=True)
@@ -43,6 +43,7 @@ if df.index == 7:
     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
 # st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
 
+pd.set_option('precision', 3)
 data = pd.read_pickle('./preflop.pickle')
 # data = data.reset_index()
 data = data[['Human' , 'Ang_Card' , 'Suited' , 'EV' ,  'y']]
