@@ -94,7 +94,7 @@ def preflop():
 #     df = df.set_index(['y'])
 #     df['top_range'] = abs(df['EV'] - 1.)
     return  df
-data = [dict(preflop())]
+data = dict(preflop())
 
 xp = hip.Experiment.from_iterable(data)
 
