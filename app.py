@@ -44,16 +44,14 @@ if df.index == 7:
     st.markdown("![OY7b2e.jpg](https://sv1.picz.in.th/images/2020/09/04/OY7b2e.jpg)")
 # st.markdown("![faae325e00926b7bfbea492651688358.jpg](https://www.img.in.th/images/faae325e00926b7bfbea492651688358.jpg)")
 
-
 data = pd.read_pickle('./preflop.pickle')
 # data = data.reset_index()
-data = data[['Ang_Card' , 'Suited' , 'y']]
+data = data[['Human' , 'Ang_Card' , 'Suited' , 'y']]
 data = data.to_dict('r')
 xp = hip.Experiment.from_iterable(data)
 # Display with `display_st` instead of `display`
 ret_val = xp.display_st(key="hip")
 st.markdown("hiplot returned " + json.dumps(ret_val))
-
 
 # Z = {"A":0, "K":1, "Q":2, "J":3,"T":4, "9":5, "8":6, "7":7, "6":8, "5":9, "4":10, "3":11, "2":12}
 # A = 0.7  ; B = 0.6 ; C =  0.5 ; D= 0.4  ; E = 0.3 ; F = 0.2  ; G = 0.1  ; H =  0.0
