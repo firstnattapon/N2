@@ -1,5 +1,4 @@
 import pandas as pd
-pd.set_option("display.precision", 8)
 import streamlit as st
 import seaborn as sns
 import numpy as np
