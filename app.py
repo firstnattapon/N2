@@ -83,7 +83,7 @@ import json
 import streamlit as st
 import hiplot as hip
 
-x1, x2, x3 = st.slider('x1'), st.slider('x2'), st.slider('x3')
+# x1, x2, x3 = st.slider('x1'), st.slider('x2'), st.slider('x3')
 
 # Create your experiment as usual
 
@@ -94,7 +94,7 @@ def preflop():
 #     df = df.set_index(['y'])
 #     df['top_range'] = abs(df['EV'] - 1.)
     return  df
-data = preflop()
+data = [dict(preflop())]
 
 xp = hip.Experiment.from_iterable(data)
 
