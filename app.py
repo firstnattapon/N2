@@ -372,19 +372,13 @@ def  gen():
     df['action']   = action
     df['output_preflop'] = df.apply(lambda x : op_preflop(x.class_preflop , x.position  , x.action) , axis=1)
 
-
-if __name__ == '__main__':
-    @st.cache(suppress_st_warning=True)
-    def preflop():
-        df = pd.read_pickle('./preflop.pickle')
-        return  df
-
-    x = [ None , "A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+def add_data ():
+    x = [ 0 , "A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x))
     c_2 = st.radio("c_2",(x))
-    suit = st.radio("suit",(None , "O" , "P" ,"S"))
-    position = st.radio("position",(None , "U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
-    action = st.radio("action",(None , "UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
+    suit = st.radio("suit",(0 , "O" , "P" ,"S"))
+    position = st.radio("position",(0 , "U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
+    action = st.radio("action",(0 , "UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     st.write('c_1:        ' , c_1)
     st.write('c_1:        ' , c_1)
@@ -392,6 +386,15 @@ if __name__ == '__main__':
     st.write('position:   ' , position)
     st.write('action:     ' , action)
     st.write('_'*20)
+
+if __name__ == '__main__':
+    @st.cache(suppress_st_warning=True)
+    def preflop():
+        df = pd.read_pickle('./preflop.pickle')
+        return  df
+    
+    if st.button('add', value=1):add_data()
+    else:add_data()
 
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
