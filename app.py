@@ -385,12 +385,12 @@ if __name__ == '__main__':
     suit = st.radio("suit",("O" , "P" ,"S"))
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
+    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     st.write('c_1:______' , c_1)
     st.write('c_1:______' , c_1)
     st.write('suit:_____' , suit)
     st.write('position:_' , position)
     st.write('action:___' , action)
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     st.write('_'*20)
 
     if st.checkbox("plot", value = 0): 
