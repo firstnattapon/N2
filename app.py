@@ -100,7 +100,7 @@ import hiplot as hip
 from pokereval.card import Card as c
 from pokereval.hand_evaluator import HandEvaluator as ev
 import SessionState 
-from st_annotated_text import annotated_text
+from annotated_text import annotated_text, annotation
 pd.set_option('precision', 3)
 # sns.set_style("whitegrid")
 
@@ -373,7 +373,6 @@ def  gen():
     action         = np.repeat(['UN_OPENED' , 'LIMPERS' , 'ONE_RAISE'] , 1690)
     df['action']   = action
     df['output_preflop'] = df.apply(lambda x : op_preflop(x.class_preflop , x.position  , x.action) , axis=1)
-
 
 if __name__ == '__main__':
     @st.cache(suppress_st_warning=True)
