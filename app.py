@@ -382,7 +382,7 @@ if __name__ == '__main__':
         return  df
 
     session = SessionState.get(run_id=0)
-    if st.button("Reset"):
+    if st.button("    Reset    "):
         session.run_id += 1
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x), key=session.run_id)
@@ -395,7 +395,7 @@ if __name__ == '__main__':
     
     annotated_text("This ",("is", "#8ef" ))
     
-    st.markdown( c_1+c_2+suit , ' ' , position , ' ' , action )
+#     st.markdown( c_1+c_2+suit , ' ' , position , ' ' , action )
     st.write('_'*20)
     
     
