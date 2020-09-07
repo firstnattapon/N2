@@ -396,7 +396,7 @@ if __name__ == '__main__':
     
     df = preflop()
     # df = df[df['Human'] == h]
-    data = df[['s_card1' , 's_card2' , 's_suited' , 'ev' ,  'class_preflop']]
+    data = df[['n_card1' , 'n_card2' , 'n_suited' , 'ev' , 'class_preflop', 'position' , 'action' , 'output_preflop']]
     data = data.to_dict('r')
     xp = hip.Experiment.from_iterable(data)
     ret_val = xp.display_st(key="hip")
