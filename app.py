@@ -380,7 +380,7 @@ if __name__ == '__main__':
         return  df
 
     session = SessionState.get(run_id=0)
-    if st.button("    Reset    "):
+    if st.button("Reset"):
         session.run_id += 1
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x), key=session.run_id)
@@ -390,11 +390,9 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    code_1 = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
-    code_2 = '''{}'''.format(0)
-
-    st.code(code_1, language='python')
-    st.code(code_2, language='python')
+    code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
+    st.code(code, language='python')
+    st.button("{}".format(c_1))
     st.write('_'*20)
 
     if st.checkbox("plot", value = 0): 
