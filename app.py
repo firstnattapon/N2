@@ -379,8 +379,10 @@ if __name__ == '__main__':
         df = pd.read_pickle('./preflop.pickle')
         return  df
     
+    df = preflop()
     if st.button("{}".format('reset')):
         session.run_id += 1
+        
     session = SessionState.get(run_id=0)
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x), key=session.run_id)
@@ -390,9 +392,12 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     
+#     df = df[df['Human'] == h ]
+
+    
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
-    st.button("{}".format(c_1)
+    st.button("{}".format(c_1))
         
     st.write('_'*20)
     if st.checkbox("plot", value = 0): 
