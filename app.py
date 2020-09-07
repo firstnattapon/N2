@@ -100,7 +100,6 @@ import hiplot as hip
 from pokereval.card import Card as c
 from pokereval.hand_evaluator import HandEvaluator as ev
 import SessionState 
-from annotated_text import annotated_text, annotation
 pd.set_option('precision', 3)
 # sns.set_style("whitegrid")
 
@@ -391,11 +390,7 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    annotated_text(
-        "This ",("{}".format(c_1+c_2+suit) , "verb", "#8ef")
-    )
-    
-#     st.markdown( c_1+c_2+suit , ' ' , position , ' ' , action )
+    st.write( c_1+c_2+suit , ' ' , position , ' ' , action )
     st.write('_'*20)
 
     if st.checkbox("plot", value = 0): 
