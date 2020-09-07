@@ -395,7 +395,7 @@ if __name__ == '__main__':
         df = pd.read_pickle('./preflop.pickle')
         return  df
     
-    if st.button('add', value=1):add_data()
+    if st.button('add'):add_data()
     else:add_data()
 
     if st.checkbox("plot", value = 0): 
