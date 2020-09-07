@@ -149,7 +149,7 @@ def  fig ():
         ax[1].set_xticklabels(alpha)
         ax[1].set_yticks(list(range(len(alpha))))
         ax[1].set_yticklabels(alpha)
-    plt.show()
+    st.pyplot()
 
 
 def  class_preflop (x ):
@@ -384,9 +384,11 @@ if __name__ == '__main__':
     suit = st.radio("suit",("O" , "P" ,"S"))
     c_1 = st.radio("c_1",(x))
     c_2 = st.radio("c_2",(x))
-    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
+    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+
+    fig()
 
     y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
     z_1  = y[c_1]
@@ -396,7 +398,7 @@ if __name__ == '__main__':
     
     df = preflop()
     # df = df[df['Human'] == h]
-    data = df[['n_card1' , 'n_card2' , 'n_suited' , 'ev' , 'class_preflop', 'position' , 'action' , 'output_preflop']]
+    data = df[['n_card1' , 'n_card2' , 'n_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
     data = data.to_dict('r')
     xp = hip.Experiment.from_iterable(data)
     ret_val = xp.display_st(key="hip")
