@@ -388,6 +388,8 @@ def add_data ():
     st.write('_'*20)
 
 if __name__ == '__main__':
+    st.write(https://github.com/firstnattapon/N2/blob/master/app.py)
+    
     @st.cache(suppress_st_warning=True)
     def preflop():
         df = pd.read_pickle('./preflop.pickle')
@@ -400,7 +402,7 @@ if __name__ == '__main__':
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
-    if st.checkbox("hiplot", value = 0): 
+    if st.checkbox("hiplot"): 
         y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,
                  'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
         z_1  = y[c_1] ; z_2  = y[c_2] ; z_3  = y[suit]
