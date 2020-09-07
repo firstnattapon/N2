@@ -380,24 +380,20 @@ def add_data ():
     position = st.radio("position",(0 , "U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
     action = st.radio("action",(0 , "UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    st.write('c_1:        ' , c_1)
-    st.write('c_1:        ' , c_1)
-    st.write('suit:       ' , suit)
-    st.write('position:   ' , position)
-    st.write('action:     ' , action)
+    st.write('c_1:       ' , c_1)
+    st.write('c_1:       ' , c_1)
+    st.write('suit:      ' , suit)
+    st.write('position:  ' , position)
+    st.write('action:    ' , action)
     st.write('_'*20)
 
 if __name__ == '__main__':
-    st.write('https://github.com/firstnattapon/N2/blob/master/app.py')
-    
     @st.cache(suppress_st_warning=True)
     def preflop():
         df = pd.read_pickle('./preflop.pickle')
         return  df
     
-    if st.button('add'):add_data()
-    else:add_data()
-
+    add_data()
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
@@ -414,3 +410,5 @@ if __name__ == '__main__':
         xp = hip.Experiment.from_iterable(data)
         ret_val = xp.display_st(key="hip")
         st.markdown("hiplot returned " + json.dumps(ret_val))
+        
+    st.write('https://github.com/firstnattapon/N2/blob/master/app.py')
