@@ -99,6 +99,7 @@ import json
 import hiplot as hip
 from pokereval.card import Card as c
 from pokereval.hand_evaluator import HandEvaluator as ev
+import SessionState 
 pd.set_option('precision', 3)
 # sns.set_style("whitegrid")
 
@@ -373,8 +374,12 @@ def  gen():
     df['output_preflop'] = df.apply(lambda x : op_preflop(x.class_preflop , x.position  , x.action) , axis=1)
 
 def add_data ():
+    session = SessionState.get(run_id=0)
+    if st.button("Reset"):
+        session.run_id += 1
+        
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-    c_1 = st.radio("c_1",(x))
+    c_1 = st.radio("c_1",(x), key=session.run_id)
     c_2 = st.radio("c_2",(x))
     suit = st.radio("suit",("O" , "P" ,"S"))
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
@@ -382,7 +387,7 @@ def add_data ():
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     st.write('c_1:       ' , c_1)
     st.write('c_2:       ' , c_2)
-    st.write('suit:      ' , suit)
+    st.write('suit:       ' , suit)
     st.write('position: ' , position)
     st.write('action:     ' , action)
     st.write('_'*20)
@@ -392,8 +397,9 @@ if __name__ == '__main__':
     def preflop():
         df = pd.read_pickle('./preflop.pickle')
         return  df
-    
+
     add_data()
+    
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
