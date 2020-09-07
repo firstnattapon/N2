@@ -102,7 +102,6 @@ from pokereval.hand_evaluator import HandEvaluator as ev
 pd.set_option('precision', 3)
 # sns.set_style("whitegrid")
 
-
 def  fig ():
     values = np.array([[1, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6],
         [1, 1, 4, 5, 7, 7, 7, 7, 7, 7, 7, 7, 7],
@@ -382,14 +381,14 @@ if __name__ == '__main__':
         return  df
 
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+    suit = st.radio("suit",("O" , "P" ,"S"))
     c_1 = st.radio("c_1",(x))
     c_2 = st.radio("c_2",(x))
-    suit = st.radio("suit",("O" , "P" ,"S"))
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'o':-1,'p':1,'s':2}
+    y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
     c_1  = y[c_1]
     c_2  = y[c_2]
     suit  = y[suit]
