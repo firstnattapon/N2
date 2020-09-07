@@ -390,8 +390,11 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    code = '''{} {} {}'''.format((c_1+c_2+suit) , position , action )
-    st.code(code, language='python')
+    code_1 = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
+    code_2 = '''{}'''.format(0)
+
+    st.code(code_1, language='python')
+    st.code(code_2, language='python')
     st.write('_'*20)
 
     if st.checkbox("plot", value = 0): 
