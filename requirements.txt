@@ -5,3 +5,4 @@ seaborn
 numpy
 hiplot
 pokereval
+st-annotated-text
