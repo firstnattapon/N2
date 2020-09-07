@@ -379,19 +379,20 @@ if __name__ == '__main__':
         df = pd.read_pickle('./preflop.pickle')
         return  df
 
-    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-    c_1 = st.radio("c_1",(x))
-    c_2 = st.radio("c_2",(x))
-    suit = st.radio("suit",("O" , "P" ,"S"))
-    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
-    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    st.write('c_1:______' , c_1)
-    st.write('c_1:______' , c_1)
-    st.write('suit:_____' , suit)
-    st.write('position:_' , position)
-    st.write('action:___' , action)
-    st.write('_'*20)
+    if st.button('add_data',value=False):
+        x = [ None , "A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+        c_1 = st.radio("c_1",(x))
+        c_2 = st.radio("c_2",(x))
+        suit = st.radio("suit",(None , "O" , "P" ,"S"))
+        position = st.radio("position",(None , "U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
+        action = st.radio("action",(None , "UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
+        st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+        st.write('c_1:        ' , c_1)
+        st.write('c_1:        ' , c_1)
+        st.write('suit:       ' , suit)
+        st.write('position:   ' , position)
+        st.write('action:     ' , action)
+        st.write('_'*20)
 
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
