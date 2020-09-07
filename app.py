@@ -386,9 +386,11 @@ def add_data ():
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     
-    st.markdown("```mermaid graph LR A(Round Rect) --> C(Round Rect)")
+    st.markdown("```mermaid
+graph LR
+A(Round Rect) --> C(Round Rect)")
     
-    st.write( c_1+c_2+suit ,'position:' , position ,'action:' , action)
+    st.write( c_1+c_2+suit , ' ' , position , ' ' , action)
     st.write('_'*20)
 
 if __name__ == '__main__':
