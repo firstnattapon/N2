@@ -218,23 +218,23 @@ def  op_preflop (class_preflop  , position , action):
     elif class_preflop == 2 :
         if position == 'U_HJ':
             if action == 'UN_OPENED'    : return  'OPEN'
-            elif  action == 'LIMPERS'      : return  'ISO'
-            elif  action == 'ONE_RAISE'  : return  'PER>20%'
+            elif  action == 'LIMPERS'   : return  'ISO'
+            elif  action == 'ONE_RAISE' : return  'PER>20%'
         if position == 'C_B':
             if action == 'UN_OPENED'    : return  'OPEN'
-            elif  action == 'LIMPERS'      : return  'SHOVE'
-            elif  action == 'ONE_RAISE'  : return  'PER>10%'
+            elif  action == 'LIMPERS'   : return  'SHOVE'
+            elif  action == 'ONE_RAISE' : return  'PER>10%'
         if position == 'BL':
             if action == 'UN_OPENED'    : return  'OPEN'
-            elif  action == 'LIMPERS'      : return  'SHOVE'
-            elif  action == 'ONE_RAISE'  : return  'SHOVE'
+            elif  action == 'LIMPERS'   : return  'SHOVE'
+            elif  action == 'ONE_RAISE' : return  'SHOVE'
         if position == 'VS_3BET':
             if action == 'UN_OPENED'    : return  '3BET>9%'
-            elif  action == 'LIMPERS'      : return  '3BET>9%'
-            elif  action == 'ONE_RAISE'  : return  '3BET>9%'
+            elif  action == 'LIMPERS'   : return  '3BET>9%'
+            elif  action == 'ONE_RAISE' : return  '3BET>9%'
         if position == 'VS_STEAL':
             if action == 'UN_OPENED'    : return  'SHOVE'
-            elif  action == 'LIMPERS'      : return  'SHOVE'
+            elif  action == 'LIMPERS'   : return  'SHOVE'
             elif  action == 'ONE_RAISE'  : return  'SHOVE'
 
     elif class_preflop == 3 :
@@ -379,7 +379,7 @@ if __name__ == '__main__':
         df = pd.read_pickle('./preflop.pickle')
         return  df
 
-    if st.button('add_data',value=False):
+    if st.button('add_data'):
         x = [ None , "A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
         c_1 = st.radio("c_1",(x))
         c_2 = st.radio("c_2",(x))
