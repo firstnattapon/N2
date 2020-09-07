@@ -373,25 +373,6 @@ def  gen():
     df['action']   = action
     df['output_preflop'] = df.apply(lambda x : op_preflop(x.class_preflop , x.position  , x.action) , axis=1)
 
-def add_data ():
-    session = SessionState.get(run_id=0)
-    if st.button("Reset"):
-        session.run_id += 1
-        
-    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-    c_1 = st.radio("c_1",(x), key=session.run_id)
-    c_2 = st.radio("c_2",(x), key=session.run_id)
-    suit = st.radio("suit",("O" , "P" ,"S"), key=session.run_id)
-    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
-    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    
-    st.markdown("```mermaid
-graph LR
-A(Round Rect) --> C(Round Rect)")
-    
-    st.write( c_1+c_2+suit , ' ' , position , ' ' , action)
-    st.write('_'*20)
 
 if __name__ == '__main__':
     @st.cache(suppress_st_warning=True)
@@ -399,7 +380,20 @@ if __name__ == '__main__':
         df = pd.read_pickle('./preflop.pickle')
         return  df
 
-    add_data()
+    session = SessionState.get(run_id=0)
+    if st.button("Reset"):
+        session.run_id += 1
+    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+    c_1 = st.radio("c_1",(x), key=session.run_id)
+    c_2 = st.radio("c_2",(x), key=session.run_id)
+    suit = st.radio("suit",("O" , "P" ,"S"), key=session.run_id)
+    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
+    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
+    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+    st.markdown( c_1+c_2+suit , ' ' , position , ' ' , action )
+    st.write('_'*20)
+    
+    
     
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
