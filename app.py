@@ -380,8 +380,6 @@ if __name__ == '__main__':
         return  df
 
     session = SessionState.get(run_id=0)
-    if st.button("Reset"):
-        session.run_id += 1
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x), key=session.run_id)
     c_2 = st.radio("c_2",(x), key=session.run_id)
@@ -389,12 +387,13 @@ if __name__ == '__main__':
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-
+    
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
-    st.button("{}".format(c_1))
+    if st.button("{}".format(c_1)):
+        session.run_id += 1
+        
     st.write('_'*20)
-
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
