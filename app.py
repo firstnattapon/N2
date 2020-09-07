@@ -379,6 +379,7 @@ if __name__ == '__main__':
         df = pd.read_pickle('./preflop.pickle')
         return  df
     
+    session = SessionState.get(run_id=0)
     df = preflop()
     if st.button("{}".format('reset')):
         session.run_id += 1
