@@ -392,7 +392,9 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    annotated_text("This ","is", "verb", "#8ef")," some ")
+    annotated_text(
+        "This ",("{}".format(c_1+c_2+suit) , "verb", "#8ef")
+    )
     
 #     st.markdown( c_1+c_2+suit , ' ' , position , ' ' , action )
     st.write('_'*20)
