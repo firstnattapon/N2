@@ -391,15 +391,12 @@ if __name__ == '__main__':
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    
-    
-    annotated_text("This ",("is", "#8ef" ))
+
+    annotated_text("This ","is", "verb", "#8ef")," some ")
     
 #     st.markdown( c_1+c_2+suit , ' ' , position , ' ' , action )
     st.write('_'*20)
-    
-    
-    
+
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
