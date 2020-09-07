@@ -388,7 +388,7 @@ def add_data ():
     st.write('_'*20)
 
 if __name__ == '__main__':
-    st.write(https://github.com/firstnattapon/N2/blob/master/app.py)
+    st.write('https://github.com/firstnattapon/N2/blob/master/app.py')
     
     @st.cache(suppress_st_warning=True)
     def preflop():
