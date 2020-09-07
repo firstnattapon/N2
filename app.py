@@ -390,10 +390,8 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    st.write( c_1+c_2+suit  )
-    st.write(  position )
-    st.write(  action )
-
+    code = '''{} {} {}'''.format((c_1+c_2+suit) , position , action )
+    st.code(code, language='python')
     st.write('_'*20)
 
     if st.checkbox("plot", value = 0): 
