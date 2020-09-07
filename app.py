@@ -373,18 +373,18 @@ def  gen():
     df['output_preflop'] = df.apply(lambda x : op_preflop(x.class_preflop , x.position  , x.action) , axis=1)
 
 def add_data ():
-    x = [ 0 , "A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x))
     c_2 = st.radio("c_2",(x))
-    suit = st.radio("suit",(0 , "O" , "P" ,"S"))
-    position = st.radio("position",(0 , "U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
-    action = st.radio("action",(0 , "UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
+    suit = st.radio("suit",("O" , "P" ,"S"))
+    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"))
+    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"))
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     st.write('c_1:       ' , c_1)
-    st.write('c_1:       ' , c_1)
+    st.write('c_2:       ' , c_2)
     st.write('suit:      ' , suit)
-    st.write('position:  ' , position)
-    st.write('action:    ' , action)
+    st.write('position: ' , position)
+    st.write('action:     ' , action)
     st.write('_'*20)
 
 if __name__ == '__main__':
