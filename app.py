@@ -378,7 +378,9 @@ if __name__ == '__main__':
     def preflop():
         df = pd.read_pickle('./preflop.pickle')
         return  df
-
+    
+    if st.button("{}".format('reset')):
+        session.run_id += 1
     session = SessionState.get(run_id=0)
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x), key=session.run_id)
@@ -390,8 +392,7 @@ if __name__ == '__main__':
     
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
-    if st.button("{}".format(c_1)):
-        session.run_id += 1
+    st.button("{}".format(c_1)
         
     st.write('_'*20)
     if st.checkbox("plot", value = 0): 
