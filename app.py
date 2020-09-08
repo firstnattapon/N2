@@ -123,7 +123,7 @@ if __name__ == '__main__':
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     
-    y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'o':-1 ,'p':0 , 's':1}
+    y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
     n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
     ev_c= np.where(x.n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
                    ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
@@ -153,4 +153,4 @@ if __name__ == '__main__':
         ret_val = xp.display_st(key="hip")
         st.markdown("hiplot returned " + json.dumps(ret_val))
         
-    st.write('https://github.com/firstnattapon/N2/blob/master/app.py')
+    st.write('https://github.com/firstnattapon/N2/edit/master/app.py')
