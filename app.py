@@ -42,7 +42,7 @@ if __name__ == '__main__':
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
     
-    df_  = df_[df_['ev'] == ev_c]
+    df_  = df[df_['ev'] == ev_c]
     df_  = df_[df_['position'] == position ]
     df_  = df_[df_['action'] == action ]
     df_ =  df_.action.to_numpy()
