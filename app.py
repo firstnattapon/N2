@@ -46,7 +46,7 @@ if __name__ == '__main__':
     df  = df[df['position'] == position ]
     df  = df[df['action'] == action ]
     df =  df.action.tail()[-1]
-    st.button("{}".format(df)
+    st.button("{}".format(df))
         
     st.write('_'*20)
     
