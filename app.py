@@ -41,13 +41,14 @@ if __name__ == '__main__':
 
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
-    
+    st.write(df)
     df_  = df[df['ev'] == ev_c]
     df_  = df_[df_['position'] == position ]
     df_  = df_[df_['action'] == action ]
     df_ =  df_.action.to_numpy()
     st.write(df)
     st.write(df_)
+
     st.button("{}".format(df_))
 
     st.write('_'*20)
