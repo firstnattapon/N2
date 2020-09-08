@@ -125,7 +125,7 @@ if __name__ == '__main__':
     
     y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
     n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
-    ev_c= np.where(x.n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
+    ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
                    ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
 
     df  = df[df['ev'] == ev_c]
