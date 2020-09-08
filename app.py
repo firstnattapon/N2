@@ -30,7 +30,7 @@ if __name__ == '__main__':
     c_1 = st.radio("c_1",(x), key=session.run_id)
     c_2 = st.radio("c_2",(x), key=session.run_id)
 
-    suit = st.radio("suit",("O" , "P" ,"S") , index= 1 if c_1==c_2 else 0 , key=session.run_id)
+    suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
@@ -54,32 +54,15 @@ if __name__ == '__main__':
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
-#     if st.checkbox("hiplot"): 
-#         y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,
-#                  'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
-#         z_1  = y[c_1] ; z_2  = y[c_2] ; z_3  = y[suit]
-#         z  =  (z_1 + z_2 + z_3) / 3
-#         df = preflop()
-
-#         data = df[['n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
-#         data = data.to_dict('r')
-#         xp = hip.Experiment.from_iterable(data)
-#         ret_val = xp.display_st(key="hip")
-#         st.markdown("hiplot returned " + json.dumps(ret_val))
+    if st.checkbox("hiplot"): 
+        df = preflop()
+        data = df[['n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
+        data = data.to_dict('r')
+        xp = hip.Experiment.from_iterable(data)
+        ret_val = xp.display_st(key="hip")
+        st.markdown("hiplot returned " + json.dumps(ret_val))
         
     st.write('https://github.com/firstnattapon/N2/edit/master/app.py')
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
