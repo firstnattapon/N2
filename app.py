@@ -23,8 +23,8 @@ if __name__ == '__main__':
     
     session = SessionState.get(run_id=0)
     df = preflop()
-    if st.button("{}".format('reset')):
-        session.run_id += 1
+#     if st.button("{}".format('reset')):
+#         session.run_id += 1
         
     if st.checkbox("Simple", value = 1):
         x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
@@ -47,7 +47,8 @@ if __name__ == '__main__':
         df_c = df.class_preflop.to_numpy()
         code = '''{}  >  {}  >  {} > {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] , df_o[-1] )
         st.code(code, language='python')
-        st.button("{}".format(df_o[-1]))
+        if st.button("{}".format(df_o[-1])):
+            session.run_id += 1
         st.write("_"*20)
     
     if st.checkbox("plot", value = 0): 
