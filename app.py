@@ -37,7 +37,8 @@ if __name__ == '__main__':
             st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
         if st.checkbox("option_2", value = 0):
             c = st.text_input("c", "AA" , key=session.run_id)
-            suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c[0]==c[1] else 1 , key=session.run_id)
+            c_1 = c[0] ; c_2 = c[1]
+            suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
             action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
             position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
             st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
