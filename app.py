@@ -184,14 +184,13 @@ def  class_preflop (x ):
     n =[]
     for i in np.ravel(keys):
         x_1 = i[0] ;  x_2 = i[1] ;  x_3 = i[2] ;
-        y  =    {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'o':-1,'p':1,'s':2}
+        y  =    {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'o':1,'p':2,'s':3}
         z_1 = y[x_1] ; z_2 = y[x_2] ; z_3 = y[x_3]
         z  =  (z_1 + z_2 + z_3) / 3
         n.append(z)
     n = np.reshape(n  , (-1 , 13))
     dictionary = dict(zip(n.reshape(-1), values.reshape(-1)))
     return dictionary[x]
- 
 
 def  op_preflop (class_preflop  , position , action):
     if class_preflop  == 1 :
@@ -354,12 +353,12 @@ def  gen():
     s_card   =   ['2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , 'T' , 'J' , 'Q' , 'K' , 'A']
     s        =   ['o' , 's']
     n_card   =   [ 2 ,  3 ,  4, 5 , 6 ,  7 , 8 , 9  , 10 , 11 , 12 , 13 , 14] 
-    n        =   [ 2 , -1 ]
+    n        =   [ 1 , 3 ]
     card_s   =  [[c_1 , c_2 , str(np.where(c_1 != c_2 , s_s ,'p'))] for c_1  in  s_card  for c_2   in  s_card  for s_s in s ]
     card_n   =  [[n_1 , n_2 , int(np.where(n_1 != n_2 , n_s , 1))]  for n_1 in  n_card for n_2   in n_card  for n_s in n ]
     df_1     = pd.DataFrame(card_s , columns =['s_card1' , 's_card2' , 's_suited' ] )
     df_2     = pd.DataFrame(card_n  , columns=['n_card1' , 'n_card2' , 'n_suited'] )
-    df       = pd.concat(objs=[df_1 , df_2 ] , axis=1 )
+    df       = pd.concat(objs=[df_1 , df_2 ] , axis=2 )
     df['index']  = (df.s_card1 + df.s_card2 + df.s_suited)
     df['ev']     =  df.apply(lambda x : np.where( x.s_suited == 's' ,  ev.evaluate_hand([c(x.n_card1 , 1), c(x.n_card2, 1)] ) ,
                                                 ev.evaluate_hand([c(x.n_card1 , 1), c(x.n_card2, 2)] ) )  , axis=1)
@@ -393,7 +392,7 @@ if __name__ == '__main__':
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
     
     y   = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,
-           'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
+           'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':1,'P':2,'S':3}
     z_1 = y[c_1] ; z_2  = y[c_2] ; z_3  = y[suit]
     z   =  (z_1 + z_2 + z_3) / 3
     df  = df[df['avg_card'] == z]
