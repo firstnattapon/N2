@@ -48,8 +48,7 @@ if __name__ == '__main__':
         df_c = df.class_preflop.to_numpy()
         code = '''{}  >  {}  >  {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] )
         st.code(code, language='python')
-        st.button("{}".format(df[-1]))
-    st.write('_'*20)
+        st.button("{}".format(df_o[-1]))
     
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
@@ -63,7 +62,6 @@ if __name__ == '__main__':
         ret_val = xp.display_st(key=session.run_id)
         st.markdown("hiplot returned " + json.dumps(ret_val))
         
-
 # import pandas as pd
 # import streamlit as st
 # import seaborn as sns
