@@ -1,3 +1,87 @@
+
+#___________________________________________________________________________________________________
+
+import pandas as pd
+import streamlit as st
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import json
+import hiplot as hip
+from pokereval.card import Card as c
+from pokereval.hand_evaluator import HandEvaluator as ev
+import SessionState 
+pd.set_option('precision', 3)
+# sns.set_style("whitegrid")
+
+
+if __name__ == '__main__':
+    @st.cache(suppress_st_warning=True)
+    def preflop():
+        df = pd.read_pickle('./preflop.pickle')
+        return  df
+    
+    session = SessionState.get(run_id=0)
+    df = preflop()
+    if st.button("{}".format('reset')):
+        session.run_id += 1
+        
+    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+    c_1 = st.radio("c_1",(x), key=session.run_id)
+    c_2 = st.radio("c_2",(x), key=session.run_id)
+    suit = st.radio("suit",("O" , "P" ,"S"), key=session.run_id)
+    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
+    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
+    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+    
+    y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
+    n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
+    ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
+                   ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
+
+    code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
+    st.code(code, language='python')
+    
+    df  = df[df['ev'] == ev_c & df['position'] == position & df['action'] == action]
+    df  = 
+    st.button("{}".format(c_1))
+        
+    st.write('_'*20)
+    
+#     if st.checkbox("plot", value = 0): 
+#         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
+#         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
+
+#     if st.checkbox("hiplot"): 
+#         y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,
+#                  'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
+#         z_1  = y[c_1] ; z_2  = y[c_2] ; z_3  = y[suit]
+#         z  =  (z_1 + z_2 + z_3) / 3
+#         df = preflop()
+
+#         data = df[['n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
+#         data = data.to_dict('r')
+#         xp = hip.Experiment.from_iterable(data)
+#         ret_val = xp.display_st(key="hip")
+#         st.markdown("hiplot returned " + json.dumps(ret_val))
+        
+    st.write('https://github.com/firstnattapon/N2/edit/master/app.py')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # import pandas as pd
 # import streamlit as st
 # import seaborn as sns
@@ -87,70 +171,3 @@
 # # fig.tight_layout()
 # # st.pyplot()
 
-#___________________________________________________________________________________________________
-
-import pandas as pd
-import streamlit as st
-import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import json
-import hiplot as hip
-from pokereval.card import Card as c
-from pokereval.hand_evaluator import HandEvaluator as ev
-import SessionState 
-pd.set_option('precision', 3)
-# sns.set_style("whitegrid")
-
-
-if __name__ == '__main__':
-    @st.cache(suppress_st_warning=True)
-    def preflop():
-        df = pd.read_pickle('./preflop.pickle')
-        return  df
-    
-    session = SessionState.get(run_id=0)
-    df = preflop()
-    if st.button("{}".format('reset')):
-        session.run_id += 1
-        
-    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-    c_1 = st.radio("c_1",(x), key=session.run_id)
-    c_2 = st.radio("c_2",(x), key=session.run_id)
-    suit = st.radio("suit",("O" , "P" ,"S"), key=session.run_id)
-    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
-    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    
-    y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
-    n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
-    ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
-                   ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
-
-    df  = df[df['ev'] == ev_c]
-    st.write(df)
-    
-    code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
-    st.code(code, language='python')
-    st.button("{}".format(c_1))
-        
-    st.write('_'*20)
-    if st.checkbox("plot", value = 0): 
-        st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
-        st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
-
-    if st.checkbox("hiplot"): 
-        y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,
-                 'T':10/14, 'J':11/14,'Q':12/14,'K':13/14,'A':14/14 , 'O':-1,'P':1,'S':2}
-        z_1  = y[c_1] ; z_2  = y[c_2] ; z_3  = y[suit]
-        z  =  (z_1 + z_2 + z_3) / 3
-        df = preflop()
-
-        data = df[['n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
-        data = data.to_dict('r')
-        xp = hip.Experiment.from_iterable(data)
-        ret_val = xp.display_st(key="hip")
-        st.markdown("hiplot returned " + json.dumps(ret_val))
-        
-    st.write('https://github.com/firstnattapon/N2/edit/master/app.py')
