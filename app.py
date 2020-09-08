@@ -46,8 +46,9 @@ if __name__ == '__main__':
     df_  = df_[df_['position'] == position ]
     df_  = df_[df_['action'] == action ]
     df_ =  df_.action.to_numpy()
+    st.write(df_)
     st.button("{}".format(df_))
-        
+
     st.write('_'*20)
     
 #     if st.checkbox("plot", value = 0): 
