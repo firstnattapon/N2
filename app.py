@@ -56,14 +56,14 @@ if __name__ == '__main__':
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
     if st.checkbox("hiplot" , value = 0): 
+        if st.button("{}".format('Reset')):
+            session.run_id += 1
         df = preflop()
         data = df[['index', 'n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
         data = data.to_dict('r')
         xp = hip.Experiment.from_iterable(data)
         ret_val = xp.display_st(key=session.run_id)
         st.markdown("hiplot returned " + json.dumps(ret_val))
-        if st.button("{}".format(0)):
-            session.run_id += 1
 
 # import pandas as pd
 # import streamlit as st
