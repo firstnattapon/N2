@@ -49,6 +49,7 @@ if __name__ == '__main__':
         code = '''{}  >  {}  >  {} > {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] , df_o[-1] )
         st.code(code, language='python')
         st.button("{}".format(df_o[-1]))
+        st.write("_"*20)
     
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
