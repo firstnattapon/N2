@@ -47,7 +47,7 @@ if __name__ == '__main__':
         df_c = df.class_preflop.to_numpy()
         code = '''{}  >  {}  >  {} > {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] , df_o[-1] )
         st.code(code, language='python')
-        if st.button("{}".format(df_o[-1])):
+        if st.button("{}{}".format( df_c[-1] , df_o[-1])):
             session.run_id += 1
         st.write("_"*20)
     
