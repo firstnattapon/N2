@@ -62,9 +62,9 @@ if __name__ == '__main__':
         xp = hip.Experiment.from_iterable(data)
         ret_val = xp.display_st(key=session.run_id)
         st.markdown("hiplot returned " + json.dumps(ret_val))
-        if st.buttonRE"{}".format(0):
+        if st.button("{}".format(0)):
             session.run_id += 1
-        
+
 # import pandas as pd
 # import streamlit as st
 # import seaborn as sns
