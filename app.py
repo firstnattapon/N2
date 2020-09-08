@@ -45,7 +45,7 @@ if __name__ == '__main__':
     df  = df[df['ev'] == ev_c]
     df  = df[df['position'] == position ]
     df  = df[df['action'] == action ]
-    df =  df.output_perflop.to_numpy()
+    df =  df.output_preflop.to_numpy()
     st.button("{}".format(df[-1]))
     st.write('_'*20)
     
