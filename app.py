@@ -59,12 +59,9 @@ if __name__ == '__main__':
         data = df[['n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
         data = data.to_dict('r')
         xp = hip.Experiment.from_iterable(data)
-        ret_val = xp.display_st(key="hip")
+        ret_val = xp.display_st(key=session.run_id)
         st.markdown("hiplot returned " + json.dumps(ret_val))
         
-    st.write('https://github.com/firstnattapon/N2/edit/master/app.py')
-
-
 
 # import pandas as pd
 # import streamlit as st
