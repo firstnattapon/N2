@@ -43,7 +43,7 @@ if __name__ == '__main__':
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
     
-    df  = df[df['ev'] == ev_c & df['position'] == position & df['action'] == action]
+    df  = df[df['ev'] == ev_c & df['position'] == position ]
     st.write(df)
     st.button("{}".format(c_1))
         
