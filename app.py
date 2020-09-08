@@ -26,35 +26,36 @@ if __name__ == '__main__':
     if st.button("{}".format('reset')):
         session.run_id += 1
         
-    x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-    c_1 = st.radio("c_1",(x), key=session.run_id)
-    c_2 = st.radio("c_2",(x), key=session.run_id)
+    if st.checkbox("Simple", value = 1):      
+        x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+        c_1 = st.radio("c_1",(x), key=session.run_id)
+        c_2 = st.radio("c_2",(x), key=session.run_id)
 
-    suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
-    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
-    action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
-    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-    
-    y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
-    n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
-    ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
-                   ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
+        suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
+        position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
+        action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
+        st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-    code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
-    st.code(code, language='python')
-    
-    df  = df[df['ev'] == ev_c]
-    df  = df[df['position'] == position ]
-    df  = df[df['action'] == action ]
-    df =  df.output_preflop.to_numpy()
-    st.button("{}".format(df[-1]))
+        y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
+        n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
+        ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
+                       ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
+
+        code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
+        st.code(code, language='python')
+
+        df  = df[df['ev'] == ev_c]
+        df  = df[df['position'] == position ]
+        df  = df[df['action'] == action ]
+        df =  df.output_preflop.to_numpy()
+        st.button("{}".format(df[-1]))
     st.write('_'*20)
     
     if st.checkbox("plot", value = 0): 
         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
-    if st.checkbox("hiplot"): 
+    if st.checkbox("hiplot" , value = 0): 
         df = preflop()
         data = df[['n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
         data = data.to_dict('r')
