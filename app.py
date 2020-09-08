@@ -32,8 +32,8 @@ if __name__ == '__main__':
         c_2 = st.radio("c_2",(x), key=session.run_id)
 
         suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
-        position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
         action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
+        position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
         st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
         y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
