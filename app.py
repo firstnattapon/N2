@@ -15,7 +15,6 @@ import SessionState
 pd.set_option('precision', 3)
 # sns.set_style("whitegrid")
 
-
 if __name__ == '__main__':
     @st.cache(suppress_st_warning=True)
     def preflop():
@@ -43,7 +42,8 @@ if __name__ == '__main__':
     code = '''{}  >  {}  >  {}'''.format((c_1+c_2+suit) , position , action )
     st.code(code, language='python')
     
-    df  = df[df['ev'] == ev_c & df['position'] == position ]
+    df  = df[df['ev'] == ev_c]
+    df  = df[df['position'] == position ]
     st.write(df)
     st.button("{}".format(c_1))
         
