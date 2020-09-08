@@ -45,7 +45,7 @@ if __name__ == '__main__':
         df  = df[df['position'] == position ]
         df  = df[df['action'] == action ]
         df_o = df.output_preflop.to_numpy()
-        df_c = df.class_perflop.to_numpy()
+        df_c = df.class_preflop.to_numpy()
         code = '''{}  >  {}  >  {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] )
         st.code(code, language='python')
         st.button("{}".format(df[-1]))
