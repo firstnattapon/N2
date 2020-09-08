@@ -29,7 +29,8 @@ if __name__ == '__main__':
     x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
     c_1 = st.radio("c_1",(x), key=session.run_id)
     c_2 = st.radio("c_2",(x), key=session.run_id)
-    suit = st.radio("suit",("O" , "P" ,"S"), key=session.run_id)
+
+    suit = st.radio("suit",("O" , "P" ,"S") , index= 1 if c_1==c_2 else 0 , key=session.run_id)
     position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
     action = st.radio("action",("UN_OPENED" , "LIMPERS" ,"ONE_RAISE"), key=session.run_id)
     st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
@@ -49,9 +50,9 @@ if __name__ == '__main__':
     st.button("{}".format(df[-1]))
     st.write('_'*20)
     
-#     if st.checkbox("plot", value = 0): 
-#         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
-#         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
+    if st.checkbox("plot", value = 0): 
+        st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
+        st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
 #     if st.checkbox("hiplot"): 
 #         y     = {'2':2/14 , '3':3/14, '4':4/14, '5':5/14, '6':6/14,'7':7/14,'8':8/14,'9':9/14,
