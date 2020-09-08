@@ -44,7 +44,7 @@ if __name__ == '__main__':
     st.code(code, language='python')
     
     df  = df[df['ev'] == ev_c & df['position'] == position & df['action'] == action]
-    df  = 
+    st.write(df)
     st.button("{}".format(c_1))
         
     st.write('_'*20)
