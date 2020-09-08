@@ -45,8 +45,8 @@ if __name__ == '__main__':
     df  = df[df['ev'] == ev_c]
     df  = df[df['position'] == position ]
     df  = df[df['action'] == action ]
-    df =  df.action.tail()
-    st.button("{}".format(str(df)))
+    df =  df.action.tail().to_numpy()
+    st.button("{}".format(df))
         
     st.write('_'*20)
     
