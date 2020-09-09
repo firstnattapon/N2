@@ -78,7 +78,7 @@ if __name__ == '__main__':
     op_b = st.radio('board',b)
     op_h = st.selectbox('hit',h)
     
-    code = '''{}  >  {}  >  {} > {} > {}'''.format(op_p , op_b , op_h )
+    code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
     st.code(code, language='python')
     
 #     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
