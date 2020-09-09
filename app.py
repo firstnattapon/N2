@@ -70,11 +70,14 @@ if __name__ == '__main__':
         return  df       
     
     x = postflop()
-    x = x.hit.unique()
-    option = st.sidebar.selectbox('hit',x)
+    p = x.position.unique()
+    b = x.board.unique()
+    h = x.hit.unique()
+   
+    op_p = st.selectbox('position',p)
+    op_b = st.selectbox('board',b)
+    op_h = st.hit('board',h)
 
-
-    
 #     c_1 = st.radio("x",(x), key=session.run_id)
     
     if st.checkbox("hiplot_postflop" , value = 0): 
