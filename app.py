@@ -67,16 +67,18 @@ if __name__ == '__main__':
     @st.cache(suppress_st_warning=True)
     def postflop():
         df = pd.read_pickle('./postflop.pickle')
-        return  df       
+        p = x.position.unique()
+        b = x.board.unique()
+        h = x.hit.unique()
+        return  df , p , b , h       
     
-    x = postflop()
-    p = x.position.unique()
-    b = x.board.unique()
-    h = x.hit.unique()
-   
+    df , p , b , h  = postflop()
+#     p = x.position.unique()
+#     b = x.board.unique()
+#     h = x.hit.unique()
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
-    op_h = st.selectbox('hit',h)
+    op_h = st.radio('hit',h)
     
     code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
     st.code(code, language='python')
