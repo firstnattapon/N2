@@ -69,18 +69,17 @@ if __name__ == '__main__':
         p = df.position.unique()
         b = df.board.unique()
         h = df.hit.unique()
-        return  df , p , b , h       
+        return  df_2 , p , b , h
     
-    df , p , b , h  = postflop()
+    df_2 , p , b , h = postflop()  
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
-#     op_h= st.selectbox('hit', h)
-    
-
-    op_h = st.select_slider("hit",options=h.tolist())    
-    
-    
-    code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
+    op_h= st.selectbox('hit', h)
+    df_2 = df[df['position'] == op_p]
+    df_2 = df[df['board'] == op_b]
+    df_2 = df[df['hit'] == op_h]
+    df_2_c = df.postflop.to_numpy()
+    code = '''{}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , df_2_c)
     st.code(code, language='python')
     
 #     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
