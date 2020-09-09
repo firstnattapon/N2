@@ -84,7 +84,7 @@ if __name__ == '__main__':
     code = '''{}  >  {}  >  {}  >  {} '''.format(op_p , op_b , op_h , str(df_2_St[-1]))
     st.code(code, language='python')
     
-    if st.button("{}".format( df_2_St[-1]):
+    if st.button("{}".format( df_2_St[-1])):
         session.run_id += 1
     st.write("_"*20)
     
