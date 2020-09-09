@@ -23,9 +23,6 @@ if __name__ == '__main__':
     
     session = SessionState.get(run_id=0)
     df = preflop()
-#     if st.button("{}".format('reset')):
-#         session.run_id += 1
-        
     if st.checkbox("Simple", value = 1):
         x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
         c_1 = st.radio("c_1",(x), key=session.run_id)
@@ -51,9 +48,9 @@ if __name__ == '__main__':
             session.run_id += 1
         st.write("_"*20)
     
-    if st.checkbox("plot", value = 0): 
-        st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
-        st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
+#     if st.checkbox("plot", value = 0): 
+#         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
+#         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
     if st.checkbox("hiplot" , value = 0): 
         if st.button("{}".format('Reset')):
@@ -64,6 +61,24 @@ if __name__ == '__main__':
         xp = hip.Experiment.from_iterable(data)
         ret_val = xp.display_st(key=session.run_id)
         st.markdown("hiplot returned " + json.dumps(ret_val))
+        
+#_______________________________________________________________________________________________________
+        
+    @st.cache(suppress_st_warning=True)
+    def postflop():
+        df = pd.read_pickle('./postflop.pickle')
+        return  df       
+        
+    if st.checkbox("hiplot_2" , value = 0): 
+        if st.button("{}".format('Reset')):
+            session.run_id += 1
+        df = postflop()
+        data = df
+        data = data.to_dict('r')
+        xp = hip.Experiment.from_iterable(data)
+        ret_val = xp.display_st(key=session.run_id)
+        st.markdown("hiplot returned " + json.dumps(ret_val))
+        
 
 # import pandas as pd
 # import streamlit as st
