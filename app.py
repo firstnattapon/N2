@@ -79,7 +79,7 @@ if __name__ == '__main__':
     df_2 = df_2[df_2['position'] == op_p]
     df_2 = df_2[df_2['board'] == op_b]
     df_2 = df_2[df_2['hit'] == op_h]
-    df_2_St = df_2[[Street]
+    df_2_St = df_2[[Street]]
     df_2_St = df_2.df_2_St.to_numpy()
     code = '''{}  >  {}  >  {}  >  {} '''.format(op_p , op_b , op_h , df_2_f[-1]  )
     st.code(code, language='python')
