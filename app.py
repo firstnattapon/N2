@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
     w1 = st.select_slider(
         "Label 1",
-        options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+        options=h
     )    
     
     
