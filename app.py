@@ -76,7 +76,7 @@ if __name__ == '__main__':
    
     op_p = st.selectbox('position',p)
     op_b = st.selectbox('board',b)
-    op_h = st.hit('board',h)
+    op_h = st.selectbox('hit',h)
 
 #     c_1 = st.radio("x",(x), key=session.run_id)
     
