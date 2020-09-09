@@ -74,12 +74,13 @@ if __name__ == '__main__':
     df_2 , p , b , h = postflop()  
     op_p = st.radio('position',p, key=session.run_id)
     op_b = st.radio('board',b, key=session.run_id)
-    op_t = st.radio('t',(None , 'nut' , 'non-nut' ,'showdown' , 'air') ,   index= 0  , key=session.run_id) 
+    op_t = st.radio('tier',(None , 'nut' , 'non-nut' ,'showdown' , 'air') ,   index= 0  , key=session.run_id) 
     if op_t != None:
         if   op_t == 'nut':op_h ='1)_two_pair+'
         elif op_t == 'non-nut':op_h = '2)_overpair'
         elif op_t == 'showdown':op_h = '3)_showdown'
         elif op_t == 'air':op_h ='4)_air'
+            
     else:op_h= st.selectbox('hit', h, key=session.run_id)    
     Street = st.radio('Street',('flop' , 'turn' , 'river'), key=session.run_id)
     df_2 = df_2[df_2['position'] == op_p]
