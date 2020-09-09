@@ -59,7 +59,7 @@ if __name__ == '__main__':
         if st.button("{}".format('Reset')):
             session.run_id += 1
         df = preflop()
-        data = df[['index', 'n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop']]
+        data = df[['index', 'n_card1' , 'n_card2' , 's_suited'  , 'class_preflop', 'position' , 'action' , 'output_preflop' ,'ev']]
         data = data.to_dict('r')
         xp = hip.Experiment.from_iterable(data)
         ret_val = xp.display_st(key=session.run_id)
