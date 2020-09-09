@@ -74,8 +74,7 @@ if __name__ == '__main__':
     df , p , b , h  = postflop()
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
-#     op_h = st.radio('hit',h)
-    op_h= st.selectbox('hit', h)
+    op_h= st.sidebar.selectbox('hit', h)
 
     
     code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
