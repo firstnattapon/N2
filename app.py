@@ -52,7 +52,7 @@ if __name__ == '__main__':
 #         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
 #         st.markdown("[![a607ec3f270aa7e759b723d935c5947a.png](https://www.img.in.th/images/a607ec3f270aa7e759b723d935c5947a.png)")
 
-    if st.checkbox("hiplot" , value = 0): 
+    if st.checkbox("hiplot_preflop" , value = 0): 
         if st.button("{}".format('Reset')):
             session.run_id += 1
         df = preflop()
@@ -68,14 +68,18 @@ if __name__ == '__main__':
     def postflop():
         df = pd.read_pickle('./postflop.pickle')
         return  df       
-        
-    if st.checkbox("hiplot_2" , value = 0): 
+    
+    x = postflop()
+    x = x.hit.unique()
+    c_1 = st.radio("x",(x), key=session.run_id)
+    
+    if st.checkbox("hiplot_postflop" , value = 0): 
         if st.button("{}".format('Reset')):
             session.run_id += 1
-        df = postflop()
-        data = df
-        data = data.to_dict('r')
-        xp = hip.Experiment.from_iterable(data)
+        df_2 = postflop()
+        data_2 = df_2
+        data_2 = data_2.to_dict('r')
+        xp = hip.Experiment.from_iterable(data_2)
         ret_val = xp.display_st(key=session.run_id)
         st.markdown("hiplot returned " + json.dumps(ret_val))
         
