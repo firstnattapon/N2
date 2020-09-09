@@ -75,7 +75,7 @@ if __name__ == '__main__':
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
     op_h= st.selectbox('hit', h)
-    Street = st.radio('Street',(flop , turn , river))
+    Street = st.radio('Street',('flop' , 'turn' , 'river'))
     df_2 = df_2[df_2['position'] == op_p]
     df_2 = df_2[df_2['board'] == op_b]
     df_2 = df_2[df_2['hit'] == op_h]
