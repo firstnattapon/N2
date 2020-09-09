@@ -43,7 +43,7 @@ if __name__ == '__main__':
     df_c = df.class_preflop.to_numpy()
     code = '''{}  >  {}  >  {} > {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] , df_o[-1] )
     st.code(code, language='python')
-    if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
+    if st.button("{}".format(df_o[-1])):
         session.run_id += 1
     st.write("_"*20)
     
@@ -74,7 +74,13 @@ if __name__ == '__main__':
     df_2 , p , b , h = postflop()  
     op_p = st.radio('position',p, key=session.run_id)
     op_b = st.radio('board',b, key=session.run_id)
-    op_h= st.selectbox('hit', h, key=session.run_id)
+    op_t = st.radio('t',('nut' , 'non-nut' ,'showdown' , 'air' , None) ,   index= 5  , key=session.run_id) 
+    if op_t != None:
+        if   op_t == 'nut':return '1)_two_pair+'
+        elif op_t == 'non-nut':return '2)_overpair'
+        elif op_t == 'showdown':return '3)_showdown'
+        elif op_t == 'air':return '4)_air'
+    else:op_h= st.selectbox('hit', h, key=session.run_id)    
     Street = st.radio('Street',('flop' , 'turn' , 'river'), key=session.run_id)
     df_2 = df_2[df_2['position'] == op_p]
     df_2 = df_2[df_2['board'] == op_b]
