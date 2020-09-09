@@ -45,7 +45,7 @@ if __name__ == '__main__':
     st.code(code, language='python')
     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
         session.run_id += 1
-        st.write("_"*20)
+    st.write("_"*20)
     
 #     if st.checkbox("plot", value = 0): 
 #         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
 #     op_h = st.radio('hit',h)
-    op_h= st.checkbox('hit' ,h)
+    op_h= st.selectbox('hit', h)
 
     
     code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
