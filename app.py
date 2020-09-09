@@ -81,7 +81,7 @@ if __name__ == '__main__':
     df_2 = df_2[df_2['hit'] == op_h]
     df_2_St = df_2[[Street]]
     df_2_St = df_2_St.to_list()
-    code = '''{}  >  {}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , Street , df_2_St[-1]))
+    code = '''{}  >  {}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , Street , df_2_St[-1])
     st.code(code, language='python')
     
     if st.button("{}".format( df_2_St[-1])):
