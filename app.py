@@ -45,7 +45,7 @@ if __name__ == '__main__':
     st.code(code, language='python')
     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
         session.run_id += 1
-    st.write("_"*10+"preflop"+"_"*10)
+    st.write("_"*5+"preflop"+"_"*5)
     
 #     if st.checkbox("plot", value = 0): 
 #         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
@@ -72,10 +72,10 @@ if __name__ == '__main__':
         return  df_2 , p , b , h
     
     df_2 , p , b , h = postflop()  
-    op_p = st.radio('position',p)
-    op_b = st.radio('board',b)
-    op_h= st.selectbox('hit', h)
-    Street = st.radio('Street',('flop' , 'turn' , 'river'))
+    op_p = st.radio('position',p, key=session.run_id)
+    op_b = st.radio('board',b, key=session.run_id)
+    op_h= st.selectbox('hit', h, key=session.run_id)
+    Street = st.radio('Street',('flop' , 'turn' , 'river'), key=session.run_id)
     df_2 = df_2[df_2['position'] == op_p]
     df_2 = df_2[df_2['board'] == op_b]
     df_2 = df_2[df_2['hit'] == op_h]
