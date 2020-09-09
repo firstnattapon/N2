@@ -75,9 +75,9 @@ if __name__ == '__main__':
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
     op_h= st.selectbox('hit', h)
-    df_2 = df[df['position'] == op_p]
-    df_2 = df[df['board'] == op_b]
-    df_2 = df[df['hit'] == op_h]
+    df_2 = df_2[df_2['position'] == op_p]
+    df_2 = df_2[df_2['board'] == op_b]
+    df_2 = df_2[df_2['hit'] == op_h]
     df_2_c = df_2.class_postflop.to_numpy()
     code = '''{}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , df_2_c)
     st.code(code, language='python')
