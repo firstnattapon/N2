@@ -77,8 +77,10 @@ if __name__ == '__main__':
 #     op_h= st.selectbox('hit', h)
     
 
-    op_h = st.select_slider("hit",options=h)
-    
+    w1 = st.select_slider(
+        "Label 1",
+        options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+    )    
     
     
     code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
