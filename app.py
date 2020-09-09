@@ -45,7 +45,7 @@ if __name__ == '__main__':
     st.code(code, language='python')
     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
         session.run_id += 1
-    st.write("_"*20)
+    st.write("_"*10+"preflop"+"_"*10)
     
 #     if st.checkbox("plot", value = 0): 
 #         st.markdown("![90dbb9ae25a0542d8876a74da01477a6.png](https://www.img.in.th/images/90dbb9ae25a0542d8876a74da01477a6.png)")
@@ -81,7 +81,7 @@ if __name__ == '__main__':
     df_2 = df_2[df_2['hit'] == op_h]
     df_2_St = df_2[[Street]]
     df_2_St = df_2_St.to_numpy()
-    code = '''{}  >  {}  >  {}  >  {} '''.format(op_p , op_b , op_h , df_2_St[-1]  )
+    code = '''{}  >  {}  >  {}  >  {} '''.format(op_p , op_b , op_h , str(df_2_St[-1]))
     st.code(code, language='python')
     
     if st.button("{}".format( df_2_St[-1]):
