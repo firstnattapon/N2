@@ -79,7 +79,8 @@ if __name__ == '__main__':
     df_2 = df_2[df_2['board'] == op_b]
     df_2 = df_2[df_2['hit'] == op_h]
     df_2_c = df_2.class_postflop.to_numpy()
-    code = '''{}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , df_2_c)
+    df_2_f = df_2.flop.to_numpy()
+    code = '''{}  >  {}  >  {}  >  {}  ,  > '''.format(op_p , op_b , op_h , df_2_c[-1] , df_2_f[-1] )
     st.code(code, language='python')
     
 #     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
@@ -88,7 +89,9 @@ if __name__ == '__main__':
     
     
     
-    
+# df_3['flop'] = df_3.apply( lambda x : flop_lpbet(x) , axis=1)
+# df_3['turn'] = df_3.apply( lambda x : turn_lpbet(x) , axis=1)
+# df_3['river'] = df_3.apply( lambda x : river_lpbet(x) , axis=1)
     
     
 #     if st.checkbox("hiplot_postflop" , value = 0): 
