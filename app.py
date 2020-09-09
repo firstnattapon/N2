@@ -78,7 +78,7 @@ if __name__ == '__main__':
     df_2 = df[df['position'] == op_p]
     df_2 = df[df['board'] == op_b]
     df_2 = df[df['hit'] == op_h]
-    df_2_c = df.postflop.to_numpy()
+    df_2_c = df_2.class_postflop.to_numpy()
     code = '''{}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , df_2_c)
     st.code(code, language='python')
     
