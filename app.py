@@ -65,7 +65,7 @@ if __name__ == '__main__':
         
     @st.cache(suppress_st_warning=True)
     def postflop():
-        df = pd.read_pickle('./postflop.pickle')
+        df_2 = pd.read_pickle('./postflop.pickle')
         p = df.position.unique()
         b = df.board.unique()
         h = df.hit.unique()
