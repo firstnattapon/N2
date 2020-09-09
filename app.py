@@ -84,17 +84,10 @@ if __name__ == '__main__':
     code = '''{}  >  {}  >  {}  >  {}  >  {}'''.format(op_p , op_b , op_h , Street , df_2_St[-1][0])
     st.code(code, language='python')
     
-    if st.button("{}".format( df_2_St[-1])):
+    if st.button("{}".format( df_2_St[-1][0])):
         session.run_id += 1
-    st.write("_"*20)
-    
-    
-    
-# df_3['flop'] = df_3.apply( lambda x : flop_lpbet(x) , axis=1)
-# df_3['turn'] = df_3.apply( lambda x : turn_lpbet(x) , axis=1)
-# df_3['river'] = df_3.apply( lambda x : river_lpbet(x) , axis=1)
-    
-    
+        
+#     st.write("_"*20)
 #     if st.checkbox("hiplot_postflop" , value = 0): 
 #         if st.button("{}".format('Reset')):
 #             session.run_id += 1
