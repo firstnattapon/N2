@@ -78,6 +78,18 @@ if __name__ == '__main__':
     op_b = st.radio('board',b)
     op_h = st.selectbox('hit',h)
     
+    code = '''{}  >  {}  >  {} > {} > {}'''.format(op_p , op_b , op_h )
+    st.code(code, language='python')
+    
+#     if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
+#         session.run_id += 1
+    st.write("_"*20)
+    
+    
+    
+    
+    
+    
 #     if st.checkbox("hiplot_postflop" , value = 0): 
 #         if st.button("{}".format('Reset')):
 #             session.run_id += 1
