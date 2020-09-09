@@ -30,7 +30,7 @@ if __name__ == '__main__':
         suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
         action = st.radio("action",("LIMPERS" , "UN_OPENED" ,"ONE_RAISE"), key=session.run_id)
         position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
-#         st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+        st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
         y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
         n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
@@ -73,12 +73,11 @@ if __name__ == '__main__':
         return  df , p , b , h       
     
     df , p , b , h  = postflop()
-#     p = x.position.unique()
-#     b = x.board.unique()
-#     h = x.hit.unique()
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
-    op_h = st.radio('hit',h)
+#     op_h = st.radio('hit',h)
+    op_h= st.checkbox('hit' ,h):
+
     
     code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
     st.code(code, language='python')
