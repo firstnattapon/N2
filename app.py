@@ -19,33 +19,32 @@ if __name__ == '__main__':
     @st.cache(suppress_st_warning=True)
     def preflop():
         df = pd.read_pickle('./preflop.pickle')
-        return  df
+        x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
+        return  df , x
     
     session = SessionState.get(run_id=0)
-    df = preflop()
-    if st.checkbox("Simple", value = 1):
-        x = ["A", "K", "Q", "J","T", "9", "8" , "7" , "6" , "5" , "4" , "3" , "2"]
-        c_1 = st.radio("c_1",(x), key=session.run_id)
-        c_2 = st.radio("c_2",(x), key=session.run_id)   
-        suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
-        action = st.radio("action",("LIMPERS" , "UN_OPENED" ,"ONE_RAISE"), key=session.run_id)
-        position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
-        st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+    df , x = preflop()    
+    c_1 = st.radio("c_1",(x), key=session.run_id)
+    c_2 = st.radio("c_2",(x), key=session.run_id)   
+    suit = st.radio("suit",("P" , "O" ,"S") , index= 0 if c_1==c_2 else 1 , key=session.run_id)
+    action = st.radio("action",("LIMPERS" , "UN_OPENED" ,"ONE_RAISE"), key=session.run_id)
+    position = st.radio("position",("U_HJ" , "C_B" , "BL" , "VS_3BET" , "VS_STEAL"), key=session.run_id)
+    st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-        y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
-        n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
-        ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
-                       ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
+    y  = {'2':2 , '3':3, '4':4, '5':5, '6':6 ,'7':7, '8':8, '9':9 ,'T':10, 'J':11, 'Q':12 ,'K':13 , 'A':14 , 'O':-1 ,'P':0 , 'S':1}
+    n_card1 = y[c_1] ; n_card2  = y[c_2] ; n_suited  = y[suit]
+    ev_c= np.where(n_suited == 1  ,  ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 1)] ) ,
+                   ev.evaluate_hand([c(n_card1 , 1), c(n_card2, 2)]))
 
-        df  = df[df['ev'] == ev_c]
-        df  = df[df['position'] == position ]
-        df  = df[df['action'] == action ]
-        df_o = df.output_preflop.to_numpy()
-        df_c = df.class_preflop.to_numpy()
-        code = '''{}  >  {}  >  {} > {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] , df_o[-1] )
-        st.code(code, language='python')
-        if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
-            session.run_id += 1
+    df  = df[df['ev'] == ev_c]
+    df  = df[df['position'] == position ]
+    df  = df[df['action'] == action ]
+    df_o = df.output_preflop.to_numpy()
+    df_c = df.class_preflop.to_numpy()
+    code = '''{}  >  {}  >  {} > {} > {}'''.format((c_1+c_2+suit) , position , action , df_c[-1] , df_o[-1] )
+    st.code(code, language='python')
+    if st.button("{})  {}".format( df_c[-1] , df_o[-1])):
+        session.run_id += 1
         st.write("_"*20)
     
 #     if st.checkbox("plot", value = 0): 
@@ -76,7 +75,7 @@ if __name__ == '__main__':
     op_p = st.radio('position',p)
     op_b = st.radio('board',b)
 #     op_h = st.radio('hit',h)
-    op_h= st.checkbox('hit' ,h):
+    op_h= st.checkbox('hit' ,h)
 
     
     code = '''{}  >  {}  >  {}  '''.format(op_p , op_b , op_h )
