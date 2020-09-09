@@ -71,7 +71,11 @@ if __name__ == '__main__':
     
     x = postflop()
     x = x.hit.unique()
-    c_1 = st.radio("x",(x), key=session.run_id)
+    option = st.sidebar.selectbox('hit',x)
+
+
+    
+#     c_1 = st.radio("x",(x), key=session.run_id)
     
     if st.checkbox("hiplot_postflop" , value = 0): 
         if st.button("{}".format('Reset')):
