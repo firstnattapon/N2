@@ -94,16 +94,16 @@ if __name__ == '__main__':
     if st.button("{}".format( df_2_St[-1][0])):
         session.run_id += 1
         
-#     st.write("_"*20)
-#     if st.checkbox("hiplot_postflop" , value = 0): 
-#         if st.button("{}".format('Reset')):
-#             session.run_id += 1
-#         df_2 = postflop()
-#         data_2 = df_2
-#         data_2 = data_2.to_dict('r')
-#         xp = hip.Experiment.from_iterable(data_2)
-#         ret_val = xp.display_st(key=session.run_id)
-#         st.markdown("hiplot returned " + json.dumps(ret_val))
+    st.write("_"*20)
+    if st.checkbox("hiplot_postflop" , value = 0): 
+        if st.button("{}".format('Reset')):
+            session.run_id += 1
+        df_2 , p , b , h = postflop()
+        data_2 = df_2
+        data_2 = data_2.to_dict('r')
+        xp = hip.Experiment.from_iterable(data_2)
+        ret_val = xp.display_st(key=session.run_id)
+        st.markdown("hiplot returned " + json.dumps(ret_val))
         
 
 # import pandas as pd
