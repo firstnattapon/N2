@@ -23,7 +23,7 @@ if __name__ == '__main__':
         return  df , x
     
     session = SessionState.get(run_id=0)
-    st.write('preflop')
+#     st.write('preflop')
     df , x = preflop()    
     c_1 = st.radio("c_1",(x), key=session.run_id)
     c_2 = st.radio("c_2",(x), key=session.run_id)   
@@ -72,7 +72,7 @@ if __name__ == '__main__':
         h = df_2.hit.unique()
         return  df_2 , p , b , h
     
-    st.write('postflop')
+#     st.write('postflop')
     df_2 , p , b , h = postflop()  
     op_p = st.radio('position',p, key=session.run_id)
     op_b = st.radio('board',b, key=session.run_id)
